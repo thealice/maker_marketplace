@@ -62,7 +62,7 @@ Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails ap
     • Follow patterns in the Rails Style Guide and the Ruby Style Guide.
 
 
-models: User (with three roles?: Admin, maker, buyer), Shop, Item, Comment?, Order??, Trade?
+models: User (with three roles?: Admin, maker, buyer), Shop, Item, CAtegory, ItemCategory, Comment?, Order??, Trade?
 SEE: https://github.com/heartcombo/devise/wiki/How-To:-Add-an-Admin-Role for info on Roles
 
 root to: 'items#index'
@@ -89,15 +89,14 @@ has_many :items, through: shops
 ?has_many :messages, through: conversations?
 
 SHOP Attributes:
-Name:string
-Description:text
+name:string
+description:text
+status:string
 cash_app_name:string
 cash_app_username:string
-status:string
-
 User_id foreign key
 
-
+rails g resource Shop name:string status:string user:references
 
 has_many :items
 belongs_to :user
