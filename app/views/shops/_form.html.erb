@@ -1,0 +1,32 @@
+<!-- form_with is newer version of form_for. It give you more flexibility with styling the form 
+since it doesn't automatically attach ids and classes to the form. PLUS form_with can be used 
+without a model. In this case multipart:true  allows for a thumbnail image upload -->
+
+<%= form_with(model: shop, local: true, multipart: true) do |form| %>
+
+  <% if shop.errors.any? %>
+    <div id="error_explanation">
+      <h3 class="red"><%= pluralize(shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
+
+      <ul>
+        <% shop.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-field">
+    <%= form.label :name, class: "label" %>
+    <%= form.text_field :name, class: "input" %>
+  </div>
+
+    <div class="form-field">
+    <%= form.label :status, class: "label" %>
+    <%= form.check_box(:status "Active", {}, "active", "inactive") %>
+  </div>
+
+  <div class="form-field">
+    <%= form.submit class: "btn" %>
+  </div>
+<% end %>
