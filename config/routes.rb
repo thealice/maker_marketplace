@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  root to: 'shops#index'
   resources :shops
   devise_for :users
   # For details on devise_for, see: https://www.rubydoc.info/github/plataformatec/devise/master/ActionDispatch/Routing/Mapper%3Adevise_for
