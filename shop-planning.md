@@ -88,6 +88,8 @@ has_many :items, through: shops
 ?has_many :conversations?
 ?has_many :messages, through: conversations?
 
+See https://stackoverflow.com/questions/17000497/rails-devise-custom-registration-and-login-at-the-same-page-issues for customizing forms
+
 SHOP Attributes:
 name:string
 description:text
