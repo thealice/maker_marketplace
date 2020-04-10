@@ -168,6 +168,8 @@ GEMS:
 
 Devise
 Pry
+look into Friendly ID for slugs:
+ https://rubygems.org/gems/friendly_id/versions/5.1.0
 
 install action_text
 
