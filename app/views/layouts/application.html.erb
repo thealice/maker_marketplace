@@ -10,13 +10,20 @@
   </head>
 
   <body>
-  
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
+    
+    <!-- error messaging -->
+    <% flash.each do |type, message| %>
+      <% if type == "alert" %>
+        <div class="bg-red">
+          <div class="container"><%= message %></div>
+        </div>
+      <% end %>
+      <% if type == "notice" %>
+        <div class="bg-green">
+          <div class="container"><%= message %></div>
+        </div>
+      <% end %>
+    <% end %><!-- END error messaging -->
 
     <%= yield %>
 
