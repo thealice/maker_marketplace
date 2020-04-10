@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_04_10_194029) do
 
   create_table "shops", force: :cascade do |t|
     t.string "name"
-    t.string "status", default: "active"
+    t.string "status", default: "inactive"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
