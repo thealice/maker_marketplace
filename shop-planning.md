@@ -116,6 +116,10 @@ User_id foreign key
 
 rails g resource Shop name:string status:string user:references
 
+then install action text to store description
+
+rails action_text:install
+
 has_many :items
 belongs_to :user
 
@@ -127,6 +131,7 @@ accepts_nested_attributes_for :items, allow_destroy: true, reject_if: proc { |at
 ITEM Attributes (Relative to Shops but seperated (nested attributes?): 
 name:string
 description:text
+category:string
 price:decimal
 make_an_offer:boolean, default true
 quantity:integer
@@ -135,6 +140,9 @@ shop_id:integer foreign key
 has_many :item_categories, dependent: :destroy
 has_many :categories, through: :item_categories
 belongs_to :shop
+
+rails g model Item name:string price:decimal category:string quantity:integer make_an_offer:boolean shop:references
+ADD description as action text?
 
 
 CONVERSATION 
@@ -186,6 +194,8 @@ GEMS:
 
 Devise
 Pry
+Bootstrap
+
 look into Friendly ID for slugs:
  https://rubygems.org/gems/friendly_id/versions/5.1.0
 
