@@ -3,3 +3,13 @@
 <p>
     Shop owner: <%= @owner.email || @owner.username %>
 </p>
+
+<!-- items listing will go here -->
+
+<!-- Shop Settings -->
+ <% if admin? || owner_of(@shop) %>
+    <div class="shop-settings">
+      <%= link_to 'Edit', edit_shop_path(@shop), class: "button" %>
+      <%= link_to 'Delete', shop_path(@shop), method: :delete, class: "button", data: { confirm: "Are you sure?" } %>
+    </div>
+<% end %>
