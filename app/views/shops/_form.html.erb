@@ -22,12 +22,12 @@ without a model. In this case multipart:true  allows for a thumbnail image uploa
   </div>
 
     <div class="form-field">
-    <%= form.label "Check box if you want your shop to be active right away:", class: "label" %>
+    <%= form.label "Shop is open for business if this box is checked:", class: "label" %>
     <%= form.check_box(:status, {}, "active", "inactive") %>
     <span class="font-small italic"></span>
   </div>
 
   <div class="form-field">
-    <%= form.submit class: "btn" %>
+    <%= form.submit class: "button" %>
   </div>
 <% end %>
