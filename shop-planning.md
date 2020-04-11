@@ -119,6 +119,9 @@ rails g resource Shop name:string status:string user:references
 then install action text to store description
 
 rails action_text:install
+check migrations and rails db:migrate
+  has_rich_text :description
+  has_one_attached :thumbnail
 
 has_many :items
 belongs_to :user
