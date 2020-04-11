@@ -9,6 +9,7 @@ class ShopsController < ApplicationController
       end
     
       def show
+        @owner = @shop.user
       end
     
       def new

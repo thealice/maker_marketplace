@@ -67,6 +67,15 @@ SEE: https://github.com/heartcombo/devise/wiki/How-To:-Add-an-Admin-Role for inf
 
 root to: 'items#index'
 
+Devise helper methods:
+user_signed_in?
+current_user
+user_session
+destroy_user_session_path (Logout)
+new_user_session_path (Login)
+edit_user_registration_path (Edit registration)
+new_user_registration_path (Register new user)
+
 User Model. Roles: Admin, Creator, Customer ???
 Try using devise: https://guides.railsgirls.com/devise
 gem 'devise'
@@ -74,6 +83,13 @@ bundle install
 rails g devise:install
 set configurations
 rails g devise model User 
+
+you can generate controllers with this command but will also have to edit the routes.rb file if you want to override the defaults
+rails generate devise:controllers users
+https://github.com/heartcombo/devise/wiki/Tool:-Generate-and-customize-controllers
+
+rails generate devise:views users
+
 USER Attributes:
 
 Username
