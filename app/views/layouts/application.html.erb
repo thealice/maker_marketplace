@@ -14,52 +14,52 @@
   </head>
 
   <body>
+    <header>
+      <!-- error messaging -->
+      <% flash.each do |type, message| %>
+        <% if type == "alert" %>
+          <div class="bg-red">
+            <div class="container"><%= message %></div>
+          </div>
+        <% end %>
+        <% if type == "notice" %>
+          <div class="bg-green">
+            <div class="container"><%= message %></div>
+          </div>
+        <% end %>
+      <% end %><!-- END error messaging -->
+
+      <!-- Navigation Menu -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <%= link_to "Marketplace", root_path, class:"navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
     
-    <!-- error messaging -->
-    <% flash.each do |type, message| %>
-      <% if type == "alert" %>
-        <div class="bg-red">
-          <div class="container"><%= message %></div>
-        </div>
-      <% end %>
-      <% if type == "notice" %>
-        <div class="bg-green">
-          <div class="container"><%= message %></div>
-        </div>
-      <% end %>
-    <% end %><!-- END error messaging -->
-
-    <!-- Navigation Menu -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <%= link_to "Marketplace", root_path, class:"navbar-brand" %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to "Create a Shop", new_shop_path, class: "btn" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "My Account", edit_user_registration_path, class: "btn" %>
-            </li>
-            <li class="nav-item">
-                <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"btn logout" %>
-            </li>
-           <% else %>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to "Login", new_user_session_path, class:"btn login" %>
+                <%= link_to "Create a Shop", new_shop_path, class: "btn" %>
               </li>
               <li class="nav-item">
-              <%= link_to "Sign Up", new_user_registration_path, class:"button" %>
+                <%= link_to "My Account", edit_user_registration_path, class: "btn" %>
               </li>
-            <% end %>
-         </ul>
-       </div>
-     </nav><!-- END Navigation -->
-
+              <li class="nav-item">
+                  <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"btn logout" %>
+              </li>
+            <% else %>
+                <li class="nav-item">
+                  <%= link_to "Login", new_user_session_path, class:"btn login" %>
+                </li>
+                <li class="nav-item">
+                <%= link_to "Sign Up", new_user_registration_path, class:"button" %>
+                </li>
+              <% end %>
+          </ul>
+        </div>
+      </nav><!-- END Navigation -->
+    </header>
     <%= yield %>
 
   </body>
