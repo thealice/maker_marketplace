@@ -1,22 +1,6 @@
-@import "trix/dist/trix.css";
+@import "trix.scss";
 
-trix-toolbar {
-  .trix-button {
-    @apply bg-white border-0;
-  }
 
-  .trix-button-group {
-    border: 0;
-  }
-
-  .trix-button--icon-bold {
-    @apply rounded-tl rounded-bl;
-  }
-
-  .trix-button--icon-redo {
-    @apply rounded-tr rounded-br;
-  }
-}
 
 .trix-button--icon-attach,
 .trix-button-group-spacer,
