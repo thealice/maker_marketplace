@@ -125,6 +125,7 @@ check migrations and rails db:migrate
 
 
 This doesn't look right yet, fix description input on form.
+Trix isn't loading wysiwyg editor yet.
 
 has_many :items
 belongs_to :user
