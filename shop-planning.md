@@ -167,14 +167,14 @@ bundle exec rails webpacker:install:stimulus
 [] make sure shop_id is added (as hidden field?) to items created as nested items.
 [] make sure shop_id is added to permitted params
 
-[x]Add category to item form
+[x] Add category to item form
 
-[]Change name of this model to Product??
+[] Change name of this model to Product??
 
-[]Add to shop_params
-              , items_attributes: [:id, :name, :description, :price, :quantity, :thumbnail, :category_ids []]
+[x] Add items_attributes to shop_params
 
-
+[] allow a non-nested route for items index
+[] update  root_path to items#index
 
 CATEGORY
   name:string

@@ -1,2 +1,10 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<div class="max-width-md margin-auto">
+    <h1>Add an Item
+        <% if @shop %>
+            <%= " to #{@shop.name}" %>
+        <% end %>
+    </h1>
+
+    <%= render 'form', item: @item, shop: @shop %>
+
+</div>
