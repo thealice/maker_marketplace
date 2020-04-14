@@ -4,6 +4,18 @@
     Shop owner: <%= @owner.email || @owner.username %>
 </p>
 
+<div class="full-width">
+  <% if @shop.featured_image.present? %>
+        <%= image_tag @shop.featured_image, class: "featured-img" %>
+  <% end %>
+  </div><!--END featured image -->
+
+  <div class="description">
+    <% if @shop.description.present? %>
+      <%= @shop.description %>
+    <% end %>
+  </div><!-- END description -->
+
 <!-- items listing will go here -->
 
 <!-- Shop Settings -->
