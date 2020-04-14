@@ -153,18 +153,21 @@ rails g model Item name:string price:decimal category:string quantity:integer ma
 [x]allow nested attributes for items in shops model (use the proc so if item name is blank it doesn't save) AND 
 [x]make sure shop has_many :items
 
-[x]add to permitted shop_params items_attributes: [:id, :name, :description, :price, :quantity ]
+[]add to permitted shop_params items_attributes: [:id, :name, :description, :price, :quantity ]
 
 install stimulus js?
 bundle exec rails webpacker:install:stimulus
 
 [x] update DB so item category is not a string
 
-[] Add Items controller and 
+[x] Add Items controller and 
 
-[]add nested routes for items within a shop
+[x]add nested routes for items within a shop
 
-[]Add category to item form
+[] make sure shop_id is added (as hidden field?) to items created as nested items.
+[] make sure shop_id is added to permitted params
+
+[x]Add category to item form
 
 []Change name of this model to Product??
 
