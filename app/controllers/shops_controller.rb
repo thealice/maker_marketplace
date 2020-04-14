@@ -27,6 +27,11 @@ class ShopsController < ApplicationController
       end
 
       def edit
+        if owner_of(@shop)
+          render :edit
+        else
+          redirect_to root_path, alert: 'You are not authorized to edit that shop.'
+        end
       end
 
       def update
@@ -38,8 +43,12 @@ class ShopsController < ApplicationController
       end
 
       def destroy
-        @shop.destroy
-        redirect_to shops_path, notice: 'Shop was successfully deleted.'
+        if owner_of(@shop)
+          @shop.destroy
+          redirect_to shops_path, notice: 'Shop was successfully deleted.'
+        else
+          redirect_to root_path, alert: 'You are not authorized to delete that shop.'
+        end
       end
 
       private
