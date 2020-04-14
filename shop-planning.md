@@ -165,9 +165,17 @@ Change name of this model to Product??
 
 generate items controller
 
-make it so quantity is a required field for items
-
 add nested routes for items within a shop
+
+CATEGORY
+  name:string
+
+  has_many :item_categories
+  has_many :items, through: item_categories
+
+ITEM_CATEGORY
+  belongs_to :item
+  belongs_to :category
 
 
 CONVERSATION 

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'categories/show'
   root to: 'shops#index'
   
   resources :shops
+  resources :categories, only: [:show]
   
   devise_for :users,
     :controllers => { registrations: 'users/registrations'},
