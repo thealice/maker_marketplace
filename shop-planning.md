@@ -131,7 +131,7 @@ accepts_nested_attributes_for :items, allow_destroy: true, reject_if: proc { |at
 
 
 
-ITEM Attributes (Relative to Shops but seperated (nested attributes?): 
+ITEM Attributes (Relative to Shops but seperated (nested attributes?): CHANGE ITEM to PRODUCT??
 name:string
 description:text
 price:decimal
@@ -145,7 +145,7 @@ belongs_to :shop
 
 rails g model Item name:string price:decimal category:string quantity:integer make_an_offer:boolean shop:references
 
-ADD description as action text?
+ADD description as action text
 
 set make_an_offer default to true
 make default price 0
@@ -156,6 +156,18 @@ add to permitted shop_params items_attributes: [:id, :name, :description, :price
 
 install stimulus js?
 bundle exec rails webpacker:install:stimulus
+
+update DB so item category is not a string but a foreign key/reference.
+
+Add category to item form
+
+Change name of this model to Product??
+
+generate items controller
+
+make it so quantity is a required field for items
+
+add nested routes for items within a shop
 
 
 CONVERSATION 
