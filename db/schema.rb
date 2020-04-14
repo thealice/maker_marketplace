@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 2020_04_14_201127) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.decimal "price", precision: 10, scale: 2, default: "0.0"
-    t.string "category"
     t.integer "quantity"
     t.boolean "make_an_offer", default: true
     t.bigint "shop_id", null: false
