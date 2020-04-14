@@ -15,51 +15,51 @@ shop owners can CRUD items in their shop, they can not CRUD other users' items.
 Items have many categories and categories have many items. Use a item_categories join table.
 
 
-Stretch goal: user sends money directly to Creator via Stripe connect.
-Stretch goal: shop owners can update items via the shop page
-Stretch goal: users can search items from all shops. 
-Stretch goal: make an offer opens up a messaging conversation
-Stretch goal: Add trade function so users can make an offer via messaging functionality
-Stretch goal: users can post comments 
-Stretch goal: members of the community can write testimonials on other people's shop "walls" as Comments
+[]Stretch goal: user sends money directly to Creator via Stripe connect.
+[]Stretch goal: shop owners can update items via the shop page
+[]Stretch goal: users can search items from all shops. 
+[]Stretch goal: make an offer opens up a messaging conversation
+[]Stretch goal: Add trade function so users can make an offer via messaging functionality
+[]Stretch goal: users can post comments 
+[]Stretch goal: members of the community can write testimonials on other people's shop "walls" as Comments
 
 https://learn.co/tracks/online-software-engineering-uci-structured/rails/rails-project-mode/rails-portfolio-project
 
 Your models must:
 
-    • Include at least one has_many, at least one belongs_to, and at least two has_many :through relationships
+   [] Include at least one has_many, at least one belongs_to, and at least two has_many :through relationships
 
-    • Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
+   [] Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
     
-    • Include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data.
+   [] Include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data.
 
-    • Include at least one class level ActiveRecord scope method. a. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).
+   [] Include at least one class level ActiveRecord scope method. a. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).
 
 Your application must:
 
-    • provide standard user authentication, including signup, login, logout, and passwords.
+   [] provide standard user authentication, including signup, login, logout, and passwords.
 
-    • allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...
+   [] allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...
 
-    • make use of a nested resource with the appropriate RESTful URLs.
+   [] make use of a nested resource with the appropriate RESTful URLs.
 
-    • include a nested new route with form that relates to the parent resource (shops/1/items/new)
+   [] include a nested new route with form that relates to the parent resource (shops/1/items/new)
 
-    • include a nested index or show route (shops/1/items/4)
+   [] include a nested index or show route (shops/1/items/4)
 
 Your forms should correctly display validation errors.
 
-    a. Your fields should be enclosed within a fields_with_errors class
+    [] Your fields should be enclosed within a fields_with_errors class
 
-    b. Error messages describing the validation failures must be present within the view.
+    [] Error messages describing the validation failures must be present within the view.
 
 Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
 
-    • Logic present in your controllers should be encapsulated as methods in your models.
+   [] Logic present in your controllers should be encapsulated as methods in your models.
 
-    • Your views should use helper methods and partials when appropriate.
+   [] Your views should use helper methods and partials when appropriate.
 
-    • Follow patterns in the Rails Style Guide and the Ruby Style Guide.
+   [] Follow patterns in the Rails Style Guide and the Ruby Style Guide.
 
 
 models: User (with three roles?: Admin, maker, buyer), Shop, Item, CAtegory, ItemCategory, Comment?, Order??, Trade?
@@ -153,20 +153,20 @@ rails g model Item name:string price:decimal category:string quantity:integer ma
 [x]allow nested attributes for items in shops model (use the proc so if item name is blank it doesn't save) AND 
 [x]make sure shop has_many :items
 
-add to permitted shop_params items_attributes: [:id, :name, :description, :price, :quantity ]
+[x]add to permitted shop_params items_attributes: [:id, :name, :description, :price, :quantity ]
 
 install stimulus js?
 bundle exec rails webpacker:install:stimulus
 
-update DB so item category is not a string but a foreign key/reference.
+[x] update DB so item category is not a string
 
-Add category to item form
+[]Add category to item form
 
-Change name of this model to Product??
+[]Change name of this model to Product??
 
-generate items controller
+[]generate items controller
 
-add nested routes for items within a shop
+[]add nested routes for items within a shop
 
 CATEGORY
   name:string
@@ -230,7 +230,7 @@ Devise
 Pry
 Bootstrap
 
-look into Friendly ID for slugs:
+[]look into Friendly ID for slugs:
  https://rubygems.org/gems/friendly_id/versions/5.1.0
 
 install action_text
@@ -238,11 +238,11 @@ install action_text
 Sidekiq is for background jobs and mailers, i don't think this is necessary for now
 mailcatcher is for mailer, skip this for now
 
-Bootstap menu not loading in small widths.
+[]Bootstap menu not loading in small widths.
 get error: DevTools failed to parse SourceMap
 check https://blog.sentry.io/2018/10/18/4-reasons-why-your-source-maps-are-broken
 
-make sure to get ride of all unused files like tests/ and devise controllers (controlers/users)
+[]make sure to get rid of all unused files like tests/ and devise controllers (controlers/users)
 --------------------------------------------------
 
 
