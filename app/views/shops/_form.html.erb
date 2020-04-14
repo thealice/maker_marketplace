@@ -71,7 +71,13 @@ without a model. In this case multipart:true  allows for a thumbnail image uploa
           <%= item.label :thumbnail, class: "label" %>
           <%= item.file_field :thumbnail %>
         </div>
+
+        <div class="form_field">
+          <%= item.label "Select Categories", class: "label" %>
+          <%= item.collection_check_boxes :category_ids, Category.all, :id, :name, class: "checkbox" %>
+        </div>
       <% end %>
+
     </div><!-- End nested items form -->
 
   <div class="form-field">

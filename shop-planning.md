@@ -145,12 +145,13 @@ belongs_to :shop
 
 rails g model Item name:string price:decimal category:string quantity:integer make_an_offer:boolean shop:references
 
-ADD description as action text
+[x] ADD description as action text
 
-set make_an_offer default to true
-make default price 0
+[x] set make_an_offer default to true
+[x] make default price 0
 
-allow nested attributes for items in shops model (use the proc so if item name is blank it doesn't save) AND make sure shop has_many :items
+[x]allow nested attributes for items in shops model (use the proc so if item name is blank it doesn't save) AND 
+[x]make sure shop has_many :items
 
 add to permitted shop_params items_attributes: [:id, :name, :description, :price, :quantity ]
 
