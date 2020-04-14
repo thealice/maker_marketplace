@@ -123,10 +123,6 @@ check migrations and rails db:migrate
   has_rich_text :description
   has_one_attached :thumbnail
 
-
-This doesn't look right yet, fix description input on form.
-Trix isn't loading wysiwyg editor yet.
-
 has_many :items
 belongs_to :user
 
