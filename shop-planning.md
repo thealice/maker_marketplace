@@ -221,7 +221,7 @@ Bootstap menu not loading in small widths.
 get error: DevTools failed to parse SourceMap
 check https://blog.sentry.io/2018/10/18/4-reasons-why-your-source-maps-are-broken
 
-
+make sure to get ride of all unused files like tests/ and devise controllers (controlers/users)
 --------------------------------------------------
 
 
