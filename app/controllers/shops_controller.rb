@@ -37,6 +37,11 @@ class ShopsController < ApplicationController
         end
       end
 
+      def destroy
+        @shop.destroy
+        redirect_to shops_path, notice: 'Shop was successfully deleted.'
+      end
+
       private
 
       def set_shop
