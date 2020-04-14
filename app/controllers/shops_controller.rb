@@ -30,6 +30,11 @@ class ShopsController < ApplicationController
       end
 
       def update
+        if @shop.update(shop_params)
+          redirect_to shop_path(@shop), notice: 'Shop was successfully updated.' 
+        else
+          render :edit
+        end
       end
 
       private
@@ -39,6 +44,6 @@ class ShopsController < ApplicationController
       end
   
       def shop_params
-        params.require(:shop).permit(:name, :status, :user_id)
+        params.require(:shop).permit(:name, :status, :user_id, :featured_image, :description)
     end
 end
