@@ -37,49 +37,6 @@ without a model. In this case multipart:true  allows for a thumbnail image uploa
     <span class="font-small italic"></span>
   </div>
 
-    <div class="nested-form">
-    
-      <h2>Add an Item to your shop</h2>
-
-      <%= form.fields_for :items, Item.new do |item| %>
-        <div class="form-field">
-          <%= item.label "Item Name", class: "label" %>
-          <%= item.text_field :name, class: "input" %>
-        </div>
-
-        <div class="form_field">
-          <%= item.label "Item Description", class: "label" %>
-          <%= item.rich_text_area :description, class: "input" %>
-        </div>
-
-        <div class="form_field">
-          <%= item.label :price, class: "label" %>
-          <%= item.text_field :price, placeholder: "0.00", class: "input" %>
-        </div>
-
-        <div class="form_field">
-          <%= form.label :quantity, class: "label" %>
-          <%= form.text_field :quantity, placeholder: "1", class: "input" %>
-        </div>
-
-        <div class="form-field">
-          <%= form.label "Make an offer available if this box is checked:", class: "label" %>
-          <%= form.check_box(:make_an_offer, {}, "true", "false") %>
-       </div>
-
-        <div class="form_field">
-          <%= item.label :thumbnail, class: "label" %>
-          <%= item.file_field :thumbnail %>
-        </div>
-
-        <div class="form_field">
-          <%= item.label "Select Categories", class: "label" %>
-          <%= item.collection_check_boxes :category_ids, Category.all, :id, :name, class: "checkbox" %>
-        </div>
-      <% end %>
-
-    </div><!-- End nested items form -->
-
   <div class="form-field">
     <%= form.submit class: "button" %>
   </div>
