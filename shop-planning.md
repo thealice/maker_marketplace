@@ -127,7 +127,7 @@ has_many :items
 belongs_to :user
 
 shop owners can update items via the shop page: 
-accepts_nested_attributes_for :items, allow_destroy: true, reject_if: proc { |attr| attr['title'].blank? }
+accepts_nested_attributes_for :items, allow_destroy: true, reject_if: proc { |attr| attr['name'].blank? }
 
 
 
@@ -160,13 +160,18 @@ bundle exec rails webpacker:install:stimulus
 
 [x] update DB so item category is not a string
 
+[] Add Items controller and 
+
+[]add nested routes for items within a shop
+
 []Add category to item form
 
 []Change name of this model to Product??
 
-[]generate items controller
+[]Add to shop_params
+              , items_attributes: [:id, :name, :description, :price, :quantity, :thumbnail, :category_ids []]
 
-[]add nested routes for items within a shop
+
 
 CATEGORY
   name:string

@@ -42,8 +42,13 @@
         <%= form.file_field :thumbnail %>
     </div>
 
+     <div class="form_field">
+        <%= form.label "Select Categories", class: "label" %>
+        <%= form.collection_check_boxes :category_ids, Category.all, :id, :name, class: "checkbox" %>
+    </div>
+
   <div class="form-field">
     <%= form.submit class: "button" %>
   </div>
-  
+
 <% end %>
