@@ -138,7 +138,6 @@ accepts_nested_attributes_for :items, allow_destroy: true, reject_if: proc { |at
 ITEM Attributes (Relative to Shops but seperated (nested attributes?): 
 name:string
 description:text
-category:string
 price:decimal
 make_an_offer:boolean, default true
 quantity:integer
@@ -149,7 +148,18 @@ has_many :categories, through: :item_categories
 belongs_to :shop
 
 rails g model Item name:string price:decimal category:string quantity:integer make_an_offer:boolean shop:references
+
 ADD description as action text?
+
+set make_an_offer default to true
+make default price 0
+
+allow nested attributes for items in shops model (use the proc so if item name is blank it doesn't save) AND make sure shop has_many :items
+
+add to permitted shop_params items_attributes: [:id, :name, :description, :price, :quantity ]
+
+install stimulus js?
+bundle exec rails webpacker:install:stimulus
 
 
 CONVERSATION 
@@ -210,6 +220,10 @@ install action_text
 
 Sidekiq is for background jobs and mailers, i don't think this is necessary for now
 mailcatcher is for mailer, skip this for now
+
+Bootstap menu not loading in small widths.
+get error: DevTools failed to parse SourceMap
+check https://blog.sentry.io/2018/10/18/4-reasons-why-your-source-maps-are-broken
 
 
 --------------------------------------------------

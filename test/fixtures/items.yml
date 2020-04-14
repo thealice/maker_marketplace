@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price: 9.99
+  category: MyString
+  quantity: 1
+  make_an_offer: false
+  shop: one
+
+two:
+  name: MyString
+  price: 9.99
+  category: MyString
+  quantity: 1
+  make_an_offer: false
+  shop: two
