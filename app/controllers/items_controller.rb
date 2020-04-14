@@ -15,13 +15,14 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @shop = Shop.find(params[:shop_id]) if params[:shop_id]
   end
 
   def create
     @item = Item.new(item_params)
     @item.shop_id = params[:shop_id] if params[:shop_id]
     if @item.save
-      redirect_to item_path(@item), notice: 'Item was successfully created.'
+      redirect_to shop_item_path(params[:shop_id], @item.id), notice: 'Item was successfully created.'
     else
       render :new
     end
@@ -60,7 +61,7 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:id, :name, :description, :price, :quantity, :thumbnail, :category_ids [])
+      params.require(:item).permit(:id, :name, :description, :price, :quantity, :thumbnail, category_ids: [])
     end
 
 end
