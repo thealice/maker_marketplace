@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def show
+    @categories = @item.categories if @item.categories
   end
 
   def index
