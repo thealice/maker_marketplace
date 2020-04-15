@@ -6,7 +6,7 @@
 
 <div class="full-width">
   <% if @shop.featured_image.present? %>
-        <%= image_tag @shop.featured_image, class: "featured-img" %>
+        <%= image_tag @shop.featured_image, class: "img featured-img" %>
   <% end %>
   </div><!--END featured image -->
 
@@ -17,6 +17,7 @@
   </div><!-- END description -->
 
 <!-- items listing will go here -->
+  <%= render 'items/listings', items: @shop.items, shop: @shop %>
 
 <!-- Shop Settings -->
  <% if admin? || owner_of(@shop) %>

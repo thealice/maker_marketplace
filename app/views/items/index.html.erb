@@ -1,2 +1,6 @@
 <h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+
+<div class="index">
+    <!-- TODO: Make this a partial so can be dropped into shop -->
+    <%= render 'listings', items: @items, shop: @shop %>
+</div>
