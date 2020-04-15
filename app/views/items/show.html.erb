@@ -1,2 +1,29 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<h1><%= @item.name %></h1>
+
+    <% if @item.thumbnail.present? %>
+        <div class="image">
+            <%= image_tag @item.thumbnail, class: "thumbnail" %>
+        </div>
+    <% end %><!--END thumbnail image -->
+
+    <div class="description">
+        <% if @item.description.present? %>
+        <%= @item.description %>
+        <% end %>
+    </div><!-- END description -->
+
+     <div class="price">
+         <%= @item.price %>
+     </div><!--END price -->
+
+
+<!-- Item settings -->
+ <!-- TODO: helper method for nested owner_of -->
+ <% if admin? || (user_signed_in? && @item.shop.user_id == current_user.id) %>
+    <div class="item-settings">
+      <%= link_to 'Edit', edit_shop_item_path(@item.shop, @item), class: "btn" %>
+      <%= link_to 'Delete', shop_item_path(@item.shop, @item), method: :delete, class: "btn", data: { confirm: "Are you sure?" } %>
+    </div>
+<% end %>
+
+
