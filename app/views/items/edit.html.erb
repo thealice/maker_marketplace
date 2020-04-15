@@ -1,2 +1,6 @@
-<h1>Items#edit</h1>
-<p>Find me in app/views/items/edit.html.erb</p>
+<div class="max-width-md margin-auto">
+    <h1>Edit <%= @item.name %></h1>
+
+    <%= render 'form', item: @item, shop: @shop %>
+
+</div>
