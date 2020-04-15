@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'shops#index'
+  root to: 'items#index'
   
   resources :shops do
     resources :items
