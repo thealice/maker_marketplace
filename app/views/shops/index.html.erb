@@ -1,3 +1,7 @@
-<% @shops.each do |shop| %>
-    <%= link_to shop.name, shop_path(shop) %>
-<% end %>
+<div class="full-width">
+    <ul class="no-decoration">
+        <% @shops.each do |shop| %>
+            <li><%= link_to shop.name, shop_path(shop) %></li>
+        <% end %>
+    </ul>
+</div>
