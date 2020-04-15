@@ -58,7 +58,11 @@ class ShopsController < ApplicationController
       private
 
       def set_shop
-        @shop = Shop.find(params[:id])
+        if Shop.find_by_id(params[:id])
+          @shop = Shop.find_by_id(params[:id])
+        else
+          redirect_to shops_path, alert: "Shop not found."
+        end
       end
   
       def shop_params
