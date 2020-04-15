@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_shop, except: [:index]
   before_action :authenticate_user!, except: [:index, :show]
 
   def show
@@ -7,7 +8,8 @@ class ItemsController < ApplicationController
 
   def index
     if params[:shop_id]
-      @items = Shop.find(params[:shop_id]).items
+      @shop = Shop.find_by_id(params[:shop_id])
+      @items = @shop.items
     else
       @items = Item.all
     end
@@ -15,27 +17,23 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @shop = Shop.find(params[:shop_id]) if params[:shop_id]
   end
 
   def create
     @item = Item.new(item_params)
     @item.shop_id = params[:shop_id] if params[:shop_id]
     if @item.save
-      redirect_to shop_item_path(params[:shop_id], @item.id), notice: 'Item was successfully created.'
+      redirect_to shop_item_path(@shop, @item), notice: 'Item was successfully created.'
     else
       render :new
     end
   end
 
   def edit
-    if params[:shop_id]
-      @shop = Shop.find(params[:shop_id])
-      if owner_of(@shop)
-        render :edit
-      else
-        redirect_to shop_item_path(params[:shop_id], @item.id), alert: 'Only the shop owner can edit this item.'
-      end
+    if owner_of(@shop)
+      render :edit
+    else
+      redirect_to shop_item_path(@shop, @item), alert: 'Only the shop owner can edit this item.'
     end
   end
 
@@ -43,21 +41,22 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if params[:shop_id]
-      @shop = Shop.find(params[:shop_id])
-      if owner_of(@shop)
-        @item.destroy
-        redirect_to items_path, notice: 'Item successfully deleted.'
-      else
-        redirect_to shop_item_path(params[:shop_id], @item.id), alert: 'Only the shop owner can delete this item.'
-      end
+    if owner_of(@shop)
+      @item.destroy
+      redirect_to shop_path(@shop), notice: 'Item successfully deleted.'
+    else
+      redirect_to shop_item_path(@shop, @item), alert: 'Only the shop owner can delete this item.'
     end
   end
 
   private
 
     def set_item
-      @item = Item.find(params[:id])
+      @item = Item.find_by_id(params[:id])
+    end
+
+    def set_shop
+      @shop = Shop.find_by_id(params[:shop_id]) if Shop.find_by_id(params[:shop_id])
     end
 
     def item_params
