@@ -1,28 +1,35 @@
-<h1><%= @shop.name %></h1> 
+<div class="full-width margin-auto">
+  <h1><%= @shop.name %></h1> 
 
-<p>
-    Shop owner: <%= @owner.name || @owner.email %>
-</p>
+  <!--Shop Details -->
+  <div class="details">
+      Shop owner: <%= @owner.name || @owner.email %>
+      <div class="description">
+        <% if @shop.description.present? %>
+          <%= @shop.description %>
+        <% end %>
+      </div>
+  </div><!-- END shop details -->
 
-<div class="full-width">
-  <% if @shop.featured_image.present? %>
-        <%= image_tag @shop.featured_image, class: "img featured-img" %>
-  <% end %>
-  </div><!--END featured image -->
-
-  <div class="description">
-    <% if @shop.description.present? %>
-      <%= @shop.description %>
+  <!-- Featured Image
+  <div class="full-width">
+    <% if @shop.featured_image.present? %>
+          <%= image_tag @shop.featured_image, class: "img featured-img" %>
     <% end %>
-  </div><!-- END description -->
+    </div>-->
+  <hr>
 
-<!-- items listing will go here -->
-  <%= render 'items/listings', items: @shop.items, shop: @shop %>
+  <!-- items listing -->
+  <div class="items-index">
+    <%= render 'items/listings', items: @shop.items, shop: @shop %>
+  </div>
 
-<!-- Shop Settings -->
- <% if admin? || owner_of(@shop) %>
-    <div class="shop-settings">
-      <%= link_to 'Edit', edit_shop_path(@shop), class: "button" %>
-      <%= link_to 'Delete', shop_path(@shop), method: :delete, class: "button", data: { confirm: "Are you sure?" } %>
-    </div>
-<% end %>
+  <!-- Shop Settings -->
+  <% if admin? || owner_of(@shop) %>
+      <div class="shop-settings">
+        <%= link_to 'Edit', edit_shop_path(@shop), class: "button" %>
+        <%= link_to 'Delete', shop_path(@shop), method: :delete, class: "button", data: { confirm: "Are you sure?" } %>
+      </div>
+  <% end %><!-- END Shop Settings -->
+
+</div>
