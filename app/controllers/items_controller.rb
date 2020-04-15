@@ -39,6 +39,15 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if owner_of(@shop)
+      if @item.update(item_params)
+        redirect_to shop_item_path(@shop, @item), notice: 'Item was successfully updated.' 
+      else
+        render :edit
+      end
+    else
+      redirect_to shop_item_path(@shop, @item), alert: 'You are not authorized to edit this item.'
+    end
   end
 
   def destroy
@@ -46,18 +55,22 @@ class ItemsController < ApplicationController
       @item.destroy
       redirect_to shop_path(@shop), notice: 'Item successfully deleted.'
     else
-      redirect_to shop_item_path(@shop, @item), alert: 'Only the shop owner can delete this item.'
+      redirect_to shop_item_path(@shop, @item), alert: 'You are not authorized to delete this item.'
     end
   end
 
   private
 
     def set_item
-      @item = Item.find_by_id(params[:id])
+      if Item.find_by_id(params[:id])
+        @item = Item.find_by_id(params[:id]) 
+      else
+        redirect_to root_path, alert: "Item not found"
+      end
     end
 
     def set_shop
-      @shop = Shop.find_by_id(params[:shop_id]) if Shop.find_by_id(params[:shop_id])
+      @shop = Shop.find_by_id(params[:shop_id]) if Shop.find_by_id(params[:shop_id]) 
     end
 
     def item_params
