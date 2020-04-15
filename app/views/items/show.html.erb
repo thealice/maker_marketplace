@@ -13,13 +13,17 @@
     </div><!-- END description -->
 
      <div class="price">
-         <%= @item.price %>
+         <%= number_to_currency(@item.price) %>
      </div><!--END price -->
+
+     <% if @item.make_an_offer? %>
+       <button class="offer">Make an offer</button>
+     <% end %><!-- END Make an offer Button -->
 
 
 <!-- Item settings -->
  <!-- TODO: helper method for nested owner_of -->
- <% if admin? || (user_signed_in? && @item.shop.user_id == current_user.id) %>
+ <% if admin? || (user_signed_in? && @shop.user_id == current_user.id) %>
     <div class="item-settings">
       <%= link_to 'Edit', edit_shop_item_path(@item.shop, @item), class: "btn" %>
       <%= link_to 'Delete', shop_item_path(@item.shop, @item), method: :delete, class: "btn", data: { confirm: "Are you sure?" } %>
