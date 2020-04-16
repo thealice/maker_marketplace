@@ -1,5 +1,5 @@
 class Shop < ApplicationRecord
-  validates_presence_of :name, uniqueness: trueq
+  validates_presence_of :name, uniqueness: true
   belongs_to :user
   has_many :items, dependent: :destroy
 
