@@ -1,4 +1,23 @@
 <h1><%= @item.name %></h1>
+    <div class="details">
+        <span>offered by:</span> 
+            <%= link_to @shop.name, shop_path(@shop) if @shop %>
+            <br/>
+        <span>listed under:</span> 
+            <% if @categories.count == 1 %>
+                <% @categories.each do |cat| %>
+                    <%= link_to cat.name, category_path(cat)  %>
+                <% end %>
+            <% else %>
+                <% @categories.each do |cat| %>
+                    <% if cat == @categories.last %>
+                        and <%= link_to cat.name, category_path(cat) %>.
+                    <% else %>
+                        <%= link_to cat.name, category_path(cat) %>,
+                    <% end%>
+                <% end %>
+            <% end %>
+    </div><!-- END details -->
 
     <% if @item.thumbnail.present? %>
         <div class="image">
@@ -6,14 +25,7 @@
         </div>
     <% end %><!--END thumbnail image -->
 
-     <div class="categories">
-        Tagged with: 
-        <% if @categories %>
-            <% @categories.each do |cat| %>
-                <%= cat.name  %><br />
-            <% end %>
-        <% end %>
-    </div><!-- END description -->
+
 
     <div class="description">
         <% if @item.description.present? %>
@@ -26,7 +38,7 @@
      </div><!--END price -->
 
      <% if @item.make_an_offer? %>
-       <%= link_to 'Make an offer', "mailto:#{@item.shop.user.email}", class: 'btn' %>
+       <%= link_to 'Initiate a Trade', "mailto:#{@item.shop.user.email}?subject=#{@item.name}", class: 'btn' %>
      <% end %><!-- END Make an offer Button -->
 
 
@@ -34,8 +46,8 @@
  <!-- TODO: helper method for nested owner_of -->
  <% if admin? || (user_signed_in? && @shop.user_id == current_user.id) %>
     <div class="item-settings">
-      <%= link_to 'Edit', edit_shop_item_path(@item.shop, @item), class: "btn" %>
-      <%= link_to 'Delete', shop_item_path(@item.shop, @item), method: :delete, class: "btn", data: { confirm: "Are you sure?" } %>
+      <%= link_to 'Edit Item', edit_shop_item_path(@item.shop, @item), class: "btn" %>
+      <%= link_to 'Delete Item', shop_item_path(@item.shop, @item), method: :delete, class: "btn", data: { confirm: "Are you sure?" } %>
     </div>
 <% end %>
 
