@@ -1,4 +1,16 @@
 <div class="max-width-md margin-auto">
+  <!--Stripe Connect -->
+  <div class="p-6 mt-10 text-gray-900 bg-white rounded shadow-lg">
+    <% unless resource.can_receive_payments? %>
+    <h4 class="mb-6 text-xl font-semibold leading-none text-gray-900">You wont be able to collect payment directly until you register with Stripe!</h4>
+    <%= stripe_connect_button %>
+    <% else %>
+    <h4 class="mb-6 text-xl font-semibold leading-none text-gray-900">Successfully connected to Stripe  ✅</h4>
+    <% end %>
+  </div><!-- END STripe Connect -->
+
+  <hr>
+  
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -45,7 +57,5 @@
   <h3>Cancel my account</h3>
 
   <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-  <%= link_to "Back", :back %>
 
 </div>
