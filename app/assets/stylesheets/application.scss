@@ -5,6 +5,7 @@
 @import "forms";
 @import "shops";
 @import "items";
+@import "buttons";
 
 .max-width-md {
     max-width: 32rem;
@@ -16,4 +17,8 @@
 
 .full-width {
     width: 100%;
+}
+
+.align-center {
+    text-align: center;
 }
