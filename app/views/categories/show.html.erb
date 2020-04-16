@@ -1,2 +1,7 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<h1><%= @category.name.capitalize %></h1>
+
+  <!-- items listing -->
+  <div class="items-index">
+    <%= render 'items/listings', items: @items, category: @category %>
+  </div>
+
