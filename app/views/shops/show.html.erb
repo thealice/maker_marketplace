@@ -11,6 +11,16 @@
       </div>
   </div><!-- END shop details -->
 
+    <!-- Shop Settings -->
+  <div class="settings right">
+    <% if admin? || owner_of(@shop) %>
+        <div class="shop-settings">
+          <%= link_to 'Edit Shop', edit_shop_path(@shop), class: "btn" %>
+          <%= link_to 'Delete Shop', shop_path(@shop), method: :delete, class: "btn", data: { confirm: "Are you sure?" } %>
+        </div>
+    <% end %>
+  </div><!-- END Shop Settings -->
+
   <!-- Featured Image
   <div class="full-width">
     <% if @shop.featured_image.present? %>
@@ -23,13 +33,5 @@
   <div class="items-index">
     <%= render 'items/listings', items: @shop.items, shop: @shop %>
   </div>
-
-  <!-- Shop Settings -->
-  <% if admin? || owner_of(@shop) %>
-      <div class="shop-settings">
-        <%= link_to 'Edit', edit_shop_path(@shop), class: "button" %>
-        <%= link_to 'Delete', shop_path(@shop), method: :delete, class: "button", data: { confirm: "Are you sure?" } %>
-      </div>
-  <% end %><!-- END Shop Settings -->
 
 </div>
