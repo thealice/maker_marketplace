@@ -2,6 +2,8 @@
         <div class="item-listing">
             <%= item.name %>
             <br/>
+            <%= number_to_currency(item.price) %>
+            <br/>
             <%= link_to (image_tag item.thumbnail, class: "thumbnail", alt: "#{item.name} preview"), shop_item_path(item.shop_id, item.id) %>
         </div>
 <% end %>

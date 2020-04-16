@@ -26,49 +26,35 @@ Items have many categories and categories have many items. Use a item_categories
 - [x]allow nested attributes for items in shops model (use the proc so if item name is blank it doesn't save) AND 
 - [x]make sure shop has_many :items
 - [x]add to permitted shop_params items_attributes: [:id, :name, :description, :price, :quantity ]
-
 - [x] update DB so item category is not a string
 - [x] Add Items controller and 
 - [x]add nested routes for items within a shop
-
 - [x] make sure shop_id is added (as hidden field?) to items created as nested items.
 - [x] make sure shop_id is added to new item resource
-
 - [x] Add category to item form
-
 - [x] Add items_attributes to shop_params
-
 - [x] allow a non-nested route for items index
 - [x] update  root_path to items#index
-
 - [x] add a back to shop button or other easy way to see what shop an item belongs to on item show page (maybe breadcrumbs up top?)
-
 - [x] add back button to bottom nav for all pages except homepage
-
 - [x] Create category show page that displays all items in that category
 - [x] add categories to nav to get to their show pages
-
 - [x] limit categories in nav bar to those which have items
 - [x] make an offer button is mailto link to email of shop open with subject of item name
-
-- [] add price to item listing (and if trade is option)
-- [] Change name of Item model to Product??
+- [x] add price to item listing (and if trade is option)
 - [] Allow new items to be added directly from shop page
 - [] Get rid of all unused files like tests/ and devise controllers (controlers/users)
 
+- []Stretch goal: shop owners can update items via the shop page
+- []Stretch goal: user sends money directly to Creator via Stripe connect.
 - []Stretch goal: look into Friendly ID for slugs:
  https://rubygems.org/gems/friendly_id/versions/5.1.0
 - []Stretch goal: install stimulus js so new items form on shop page only pops up if you click on a button
 bundle exec rails webpacker:install:stimulus
 - []Stretch goal: Make an offer button opens up a conversation between users
 - []Stretch goal: Make an offer has an auto-fill for current items the user has to attach to their offer
-- []Stretch goal: user sends money directly to Creator via Stripe connect.
-- []Stretch goal: shop owners can update items via the shop page
 - []Stretch goal: users can search items from all shops. 
-- []Stretch goal: make an offer opens up a messaging conversation
-- []Stretch goal: Add trade function so users can make an offer via messaging functionality
-- []Stretch goal: users can post comments 
-- []Stretch goal: members of the community can write testimonials on other people's shop "walls" as Comments
+- []Stretch goal: users can post comments (on items or shops)
 
 https://learn.co/tracks/online-software-engineering-uci-structured/rails/rails-project-mode/rails-portfolio-project
 
