@@ -29,6 +29,14 @@
     </div>-->
   <hr>
 
+  <!-- Add new item to shop -->
+  <h2>Add a new item to <%= @shop.name %></h2>
+  <div class="max-width-md">
+    <%= render 'items/form', item: Item.new, shop: @shop %>
+  </div>
+
+  <hr>
+
   <!-- items listing -->
   <div class="items-index">
     <%= render 'items/listings', items: @shop.items, shop: @shop %>
