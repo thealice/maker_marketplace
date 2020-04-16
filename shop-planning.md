@@ -111,8 +111,8 @@ SHOP Attributes:
 name:string
 description:text
 status:string
-cash_app_name:string
-cash_app_username:string
+?cash_app_name:string?
+?cash_app_username:string?
 User_id foreign key
 
 rails g resource Shop name:string status:string user:references
@@ -130,6 +130,10 @@ belongs_to :user
 [] shop owners can update items via the shop page: 
 accepts_nested_attributes_for :items, allow_destroy: true, reject_if: proc { |attr| attr['name'].blank? }
 
+[x] Add "Add new item" to Nav if user only has one shop
+[x] Add "Add Item" to Nav with dropdown for which shop to add to if user has more than one shop
+[x] Add has_one_shop? user method
+[x] Add has_many_shops? user method
 
 
 ITEM Attributes (Relative to Shops but seperated (nested attributes?): CHANGE ITEM to PRODUCT??
