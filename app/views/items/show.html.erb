@@ -1,4 +1,6 @@
 <h1><%= @item.name %></h1>
+
+    <!-- Item Details -->
     <div class="details">
         <span>offered by:</span> 
             <%= link_to @shop.name, shop_path(@shop) if @shop %>
@@ -25,8 +27,6 @@
         </div>
     <% end %><!--END thumbnail image -->
 
-
-
     <div class="description">
         <% if @item.description.present? %>
         <%= @item.description %>
@@ -40,7 +40,6 @@
      <% if @item.make_an_offer? %>
        <%= link_to 'Initiate a Trade', "mailto:#{@item.shop.user.email}?subject=#{@item.name}", class: 'btn' %>
      <% end %><!-- END Make an offer Button -->
-
 
 <!-- Item settings -->
  <!-- TODO: helper method for nested owner_of -->
