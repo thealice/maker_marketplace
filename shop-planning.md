@@ -27,31 +27,32 @@ https://learn.co/tracks/online-software-engineering-uci-structured/rails/rails-p
 
 Your models must:
 
-   [] Include at least one has_many, at least one belongs_to, and at least two has_many :through relationships
+   [x] Include at least one has_many (shop has_many items), at least one belongs_to (item belongs to shop), and at least two has_many :through relationships (1. Category has many items, through item_categories, 2. User has many items through shops)
 
-   [] Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
+   [x] Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user (Shops)
     
-   [] Include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data.
+   [x] Include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data. (user attributes are validated, email needs to have @, password must be at least 6 characters, Shops validate presence of :name, uniqueness: true, can only add items to a shop if they have a name, Category validates presence of name)
 
-   [] Include at least one class level ActiveRecord scope method. a. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).
+   [x] Include at least one class level ActiveRecord scope method. a. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).
+   Category.with_items_alph
 
 Your application must:
 
-   [] provide standard user authentication, including signup, login, logout, and passwords.
+   [x] provide standard user authentication, including signup, login, logout, and passwords.
 
    [] allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...
 
-   [] make use of a nested resource with the appropriate RESTful URLs.
+   [x] make use of a nested resource with the appropriate RESTful URLs.
 
-   [] include a nested new route with form that relates to the parent resource (shops/1/items/new)
+   [x] include a nested new route with form that relates to the parent resource (shops/1/items/new)
 
-   [] include a nested index or show route (shops/1/items/4)
+   [x] include a nested index or show route (shops/1/items/4)
 
 Your forms should correctly display validation errors.
 
-    [] Your fields should be enclosed within a fields_with_errors class
+    [x] Your fields should be enclosed within a fields_with_errors class
 
-    [] Error messages describing the validation failures must be present within the view.
+    [x] Error messages describing the validation failures must be present within the view.
 
 Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
 
@@ -126,7 +127,7 @@ check migrations and rails db:migrate
 has_many :items
 belongs_to :user
 
-shop owners can update items via the shop page: 
+[] shop owners can update items via the shop page: 
 accepts_nested_attributes_for :items, allow_destroy: true, reject_if: proc { |attr| attr['name'].blank? }
 
 
@@ -153,7 +154,7 @@ rails g model Item name:string price:decimal category:string quantity:integer ma
 [x]allow nested attributes for items in shops model (use the proc so if item name is blank it doesn't save) AND 
 [x]make sure shop has_many :items
 
-[]add to permitted shop_params items_attributes: [:id, :name, :description, :price, :quantity ]
+[x]add to permitted shop_params items_attributes: [:id, :name, :description, :price, :quantity ]
 
 install stimulus js?
 bundle exec rails webpacker:install:stimulus
@@ -164,8 +165,8 @@ bundle exec rails webpacker:install:stimulus
 
 [x]add nested routes for items within a shop
 
-[] make sure shop_id is added (as hidden field?) to items created as nested items.
-[] make sure shop_id is added to permitted params
+[x] make sure shop_id is added (as hidden field?) to items created as nested items.
+[x] make sure shop_id is added to new item resource
 
 [x] Add category to item form
 
@@ -173,8 +174,14 @@ bundle exec rails webpacker:install:stimulus
 
 [x] Add items_attributes to shop_params
 
-[] allow a non-nested route for items index
-[] update  root_path to items#index
+[x] allow a non-nested route for items index
+[x] update  root_path to items#index
+
+[x] add a back to shop button or other easy way to see what shop an item belongs to on item show page (maybe breadcrumbs up top?)
+
+[x] add back button to bottom nav for all pages except homepage
+
+[] add price to item listing (and if trade is option)
 
 CATEGORY
   name:string
@@ -186,6 +193,13 @@ ITEM_CATEGORY
   belongs_to :item
   belongs_to :category
 
+[x] Create category show page that displays all items in that category
+[x] add categories to nav to get to their show pages
+
+[x] limit categories in nav bar to those which have items
+
+
+------------------------------
 
 CONVERSATION 
 sender_id:integer
@@ -246,7 +260,7 @@ install action_text
 Sidekiq is for background jobs and mailers, i don't think this is necessary for now
 mailcatcher is for mailer, skip this for now
 
-[]Bootstap menu not loading in small widths.
+[x]Bootstap menu not loading in small widths.
 get error: DevTools failed to parse SourceMap
 check https://blog.sentry.io/2018/10/18/4-reasons-why-your-source-maps-are-broken
 
