@@ -28,6 +28,20 @@
                 <li class="nav-item">
                 <%= link_to "Create a Shop", new_shop_path, class: "btn" %>
                 </li>
+                <% if current_user.has_one_shop? %>
+                    <li class="nav-item">
+                        <%= link_to "Add an Item", new_shop_item_path(current_user.shops.last), class: "btn" %>
+                    </li>
+                <% elsif current_user.has_many_shops? %>
+                    <li class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Add Item<span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <% current_user.shops.each do |s| %>
+                                <li><%= link_to s.name, new_shop_item_path(s) %></li>
+                            <% end %>
+                        </ul>
+                    </li>    
+                <% end %>
                 <li class="nav-item">
                 <%= link_to "My Account", edit_user_registration_path, class: "btn" %>
                 </li>
