@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:show, :index]
   
   devise_for :users,
-    :controllers => { registrations: 'users/registrations'},
+    :controllers => { registrations: 'users/registrations', omniauth_callbacks: "omniauth_callbacks" },
     :path_names => {
       :sign_in => 'login',
       :sign_out => 'logout',
