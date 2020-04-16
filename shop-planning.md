@@ -43,7 +43,7 @@ Items have many categories and categories have many items. Use a item_categories
 - [x] make an offer button is mailto link to email of shop open with subject of item name
 - [x] add price to item listing (and if trade is option)
 - [x] Allow new items to be added directly from shop page
-
+- [] Allow login via Stripe
 - [] Style items listing
 - [] Style shops listing (or remove?)
 - [] Add My shop button to nav for users with one shop
