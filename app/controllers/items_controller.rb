@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_shop, except: [:index]
+  before_action :check_permissions, except: [:index, :show]
   before_action :authenticate_user!, except: [:index, :show]
 
   def show
@@ -17,16 +18,10 @@ class ItemsController < ApplicationController
   end
 
   def new
-    if owner_of(@shop)
-      @item = Item.new
-      render :new
-    else
-      redirect_to root_path, alert: "You are not authorized to create item in this shop."
-    end
+    @item = Item.new
   end
 
   def create
-    if owner_of(@shop)
       @item = Item.new(item_params)
       @item.shop_id = params[:shop_id] if params[:shop_id]
       if @item.save
@@ -34,38 +29,23 @@ class ItemsController < ApplicationController
       else
         render :new
       end
-    else
-      redirect_to root_path, alert: "You are not authorized to create item in this shop."
-    end
   end
 
   def edit
-    if owner_of(@shop)
-      render :edit
-    else
-      redirect_to shop_item_path(@shop, @item), alert: 'Only the shop owner can edit this item.'
-    end
+    render :edit
   end
 
   def update
-    if owner_of(@shop)
-      if @item.update(item_params)
-        redirect_to shop_item_path(@shop, @item), notice: 'Item was successfully updated.' 
-      else
-        render :edit
-      end
+    if @item.update(item_params)
+      redirect_to shop_item_path(@shop, @item), notice: 'Item was successfully updated.' 
     else
-      redirect_to shop_item_path(@shop, @item), alert: 'You are not authorized to edit this item.'
+      render :edit
     end
   end
 
   def destroy
-    if owner_of(@shop)
-      @item.destroy
-      redirect_to shop_path(@shop), notice: 'Item successfully deleted.'
-    else
-      redirect_to shop_item_path(@shop, @item), alert: 'You are not authorized to delete this item.'
-    end
+    @item.destroy
+    redirect_to shop_path(@shop), notice: 'Item successfully deleted.'
   end
 
   private
@@ -84,6 +64,12 @@ class ItemsController < ApplicationController
 
     def item_params
       params.require(:item).permit(:id, :name, :description, :price, :quantity, :thumbnail, category_ids: [])
+    end
+
+    def check_permissions
+      unless owner_of(@shop) || admin?
+        redirect_to root_path, alert: "You are not authorized to complete this action."
+      end
     end
 
 end
