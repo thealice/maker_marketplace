@@ -17,16 +17,25 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    if owner_of(@shop)
+      @item = Item.new
+      render :new
+    else
+      redirect_to root_path, alert: "You are not authorized to create item in this shop."
+    end
   end
 
   def create
-    @item = Item.new(item_params)
-    @item.shop_id = params[:shop_id] if params[:shop_id]
-    if @item.save
-      redirect_to shop_item_path(@shop, @item), notice: 'Item was successfully created.'
+    if owner_of(@shop)
+      @item = Item.new(item_params)
+      @item.shop_id = params[:shop_id] if params[:shop_id]
+      if @item.save
+        redirect_to shop_item_path(@shop, @item), notice: 'Item was successfully created.'
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to root_path, alert: "You are not authorized to create item in this shop."
     end
   end
 

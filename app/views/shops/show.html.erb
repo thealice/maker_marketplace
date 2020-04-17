@@ -30,12 +30,13 @@
   <hr>
 
   <!-- Add new item to shop -->
-  <h2>Add a new item to <%= @shop.name %></h2>
-  <div class="max-width-md">
-    <%= render 'items/form', item: Item.new, shop: @shop %>
-  </div>
-
-  <hr>
+  <% if admin? || owner_of(@shop) %>
+    <h2>Add a new item to <%= @shop.name %></h2>
+    <div class="max-width-md">
+      <%= render 'items/form', item: Item.new, shop: @shop %>
+    </div>
+    <hr>
+  <% end %>
 
   <!-- items listing -->
   <div class="items-index">
