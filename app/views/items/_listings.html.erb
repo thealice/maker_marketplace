@@ -1,9 +1,11 @@
 <% items.each do |item| %>
         <div class="item-listing">
-            <%= item.name %>
+            <%= link_to item.name, shop_item_path(item.shop_id, item.id) %>
             <br/>
-            <%= number_to_currency(item.price) %>
+            <%= number_to_currency(item.price) if item.price%>
             <br/>
-            <%= link_to (image_tag item.thumbnail, class: "thumbnail", alt: "#{item.name} preview"), shop_item_path(item.shop_id, item.id) %>
+            <% if item.thumbnail.present? %>
+                <%= link_to (image_tag item.thumbnail, class: "thumbnail", alt: "#{item.name} preview"), shop_item_path(item.shop_id, item.id) %>
+            <% end %>
         </div>
 <% end %>
