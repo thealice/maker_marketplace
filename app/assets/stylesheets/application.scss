@@ -6,6 +6,7 @@
 @import "shops";
 @import "items";
 @import "buttons";
+@import "messages";
 
 .max-width-md {
     max-width: 32rem;
@@ -23,6 +24,10 @@
     text-align: center;
 }
 
-.inline_block {
+.text-align-right {
+    text-align: right;
+}
 
+.inline_block {
+    display: inline-block;
 }
