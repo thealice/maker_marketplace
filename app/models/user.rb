@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:stripe_connect]
-
+  validates_presence_of :name
   has_many :shops, dependent: :destroy
   has_many :items, through: :shops
 
