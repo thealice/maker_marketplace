@@ -45,6 +45,7 @@ Items have many categories and categories have many items. Use a item_categories
 - [x] Allow new items to be added directly from shop page
 
 - [] Allow login via Google, Github, Twitter or Instagram
+- [] Add meaningful ReadMe.md
 - [] Style items listing
 - [] Style shops listing (or remove?)
 - [] Add My shop button to nav for users with one shop
