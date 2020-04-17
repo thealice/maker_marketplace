@@ -43,23 +43,29 @@ Items have many categories and categories have many items. Use a item_categories
 - [x] make an offer button is mailto link to email of shop open with subject of item name
 - [x] add price to item listing (and if trade is option)
 - [x] Allow new items to be added directly from shop page
-- [] Allow login via Stripe
+
+- [] Allow login via Google, Github, Twitter or Instagram
 - [] Style items listing
 - [] Style shops listing (or remove?)
 - [] Add My shop button to nav for users with one shop
 - [] Add My Shops button to nav for users with more than one shop
 - [] Get rid of all unused files like tests/ and devise controllers (controlers/users)
+- [] Stretch goal: Make an offer button opens up a conversation between users
+  - [] Conversation model
+  - [] Conversation migration
+  - [] Message model
+  - [] Message migration
 
 
+- [] Stretch goal: Make an offer has an auto-fill for current items the user has to attach to their offer
 - [] Stretch goal: shop owners can update items via the shop page
 - [] Stretch goal: user sends money directly to Creator via Stripe connect.
+- [] Stretch goal: Allow login via Stripe
 - [] Stretch goal: Add separate contact info for shop (instead of emailing trade offer to owner of shop)
 - [] Stretch goal: look into Friendly ID for slugs:
  https://rubygems.org/gems/friendly_id/versions/5.1.0
 - [] Stretch goal: install stimulus js so new items form on shop page only pops up if you click on a button
 bundle exec rails webpacker:install:stimulus
-- [] Stretch goal: Make an offer button opens up a conversation between users
-- [] Stretch goal: Make an offer has an auto-fill for current items the user has to attach to their offer
 - [] Stretch goal: users can search items from all shops. 
 - [] Stretch goal: users can post comments (on items or shops)
 
