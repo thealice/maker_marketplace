@@ -81,7 +81,7 @@ Your models must:
    - [x] Include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data. (user attributes are validated, email needs to have @, password must be at least 6 characters, Shops validate presence of :name, uniqueness: true, can only add items to a shop if they have a name, Category validates presence of name)
 
    - [x] Include at least one class level ActiveRecord scope method. a. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).
-   Category.with_items_alph
+   Category.with_items_alph and Message.between
 
 Your application must:
 

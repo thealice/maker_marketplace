@@ -36,14 +36,16 @@
      <div class="price">
          <%= number_to_currency(@item.price) %>
      </div><!--END price -->
-
-     <% if @item.make_an_offer? %>
-       <%= link_to 'Initiate a Trade', "mailto:#{@item.shop.user.email}?subject=#{@item.name}", class: 'btn' %>
-     <% end %><!-- END Make an offer Button -->
+    
+    <% unless item_owner(@item)%>
+        <% if @item.make_an_offer? %>
+        <%= link_to 'Initiate a Trade', "mailto:#{@item.shop.user.email}?subject=#{@item.name}", class: 'btn' %>
+        <% end %>
+    <% end %>
+     <!-- END Make an offer Button -->
 
 <!-- Item settings -->
- <!-- TODO: helper method for nested owner_of -->
- <% if admin? || (user_signed_in? && @shop.user_id == current_user.id) %>
+ <% if admin? || item_owner(@item) %>
     <div class="item-settings">
       <%= link_to 'Edit Item', edit_shop_item_path(@item.shop, @item), class: "btn" %>
       <%= link_to 'Delete Item', shop_item_path(@item.shop, @item), method: :delete, class: "btn", data: { confirm: "Are you sure?" } %>
