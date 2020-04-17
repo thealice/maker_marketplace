@@ -2,10 +2,7 @@
 
     <!-- Item Details -->
     <div class="details">
-        <span>offered by:</span> 
-            <%= link_to @shop.name, shop_path(@shop) if @shop %>
-            <br/>
-        <span>listed under:</span> 
+        <span>Listed under:</span> 
             <% if @categories.count == 1 %>
                 <% @categories.each do |cat| %>
                     <%= link_to cat.name, category_path(cat)  %>
@@ -19,6 +16,10 @@
                     <% end%>
                 <% end %>
             <% end %>
+                <div class="item-owner-info">
+        <span>Offered by:</span>
+        <%= link_to @shop.name, shop_path(@shop) if @shop %>
+    </div>
     </div><!-- END details -->
 
     <% if @item.thumbnail.present? %>
@@ -37,12 +38,11 @@
          <%= number_to_currency(@item.price) %>
      </div><!--END price -->
     
-    <% unless item_owner(@item)%>
-        <% if @item.make_an_offer? %>
-        <%= link_to 'Initiate a Trade', "mailto:#{@item.shop.user.email}?subject=#{@item.name}", class: 'btn' %>
-        <% end %>
-    <% end %>
-     <!-- END Make an offer Button -->
+    <% if !user_signed_in? %>
+      <%= link_to "Sign up to Message #{@shop.user.name || @shop.name}", new_user_registration_path, class: 'btn' %>
+    <% elsif !item_owner(@item) %>
+        <%= link_to "Message #{@shop.user.name || @shop.name}", conversations_path(sender_id: current_user.id, recipient_id: @shop.user_id), method: 'post', class:"btn is-link" %>
+    <% end %><!-- END Message Button -->
 
 <!-- Item settings -->
  <% if admin? || item_owner(@item) %>
@@ -51,5 +51,7 @@
       <%= link_to 'Delete Item', shop_item_path(@item.shop, @item), method: :delete, class: "btn", data: { confirm: "Are you sure?" } %>
     </div>
 <% end %>
+
+
 
 
