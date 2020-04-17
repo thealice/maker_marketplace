@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :items
   end
   resources :categories, only: [:show, :index]
+
+  resources :conversations do
+    resources :messages
+  end
   
   devise_for :users,
     :controllers => { registrations: 'users/registrations', omniauth_callbacks: "omniauth_callbacks" },
