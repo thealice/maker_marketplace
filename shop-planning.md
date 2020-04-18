@@ -48,21 +48,39 @@ Items have many categories and categories have many items. Use a item_categories
 - [] Add meaningful ReadMe.md
 - [] Style items listing
 - [] Style shops listing (or remove?)
-- [] Add My shop button to nav for users with one shop
-- [] Add My Shops button to nav for users with more than one shop
+- [] Add cash app purchase
+- [] Make clear which items are available for trade and which aren't (add an available for trade section under shop by category, or after price put "or trade" or add some kind of banner across the thumbnail image or whatever)
+- [] Add My shop button to nav for users with one shop (and nest add item under there?)
+- [] Add My Shops button to nav for users with more than one shop?
 - [] Get rid of all unused files like tests/ and devise controllers (controlers/users)
-- [] Stretch goal: Make an offer button opens up a conversation between users
-  - [] Conversation model
-  - [] Conversation migration
-  - [] Message model
-  - [] Message migration
+- [x] Stretch goal: Message button opens up a conversation between users
+  - [x] Conversation model
+  - [x] Conversation migration
+  - [x] Message model
+  - [x] Message migration
+  - [x] Messages index view
+  - [x] Conversations index view
+  - [x] There is only one conversation between the same two users
+  - [x] Add link to message owner on item show page
+  - [] Style messages properly
+  - [] change message body from text to action text like the descriptions?
+  - [] add "read" boolean to messages
+  - [] update nav link so users only see their own conversations
+  - [] users should only be able to create a message within their own conversations
+- [] remove shops index
+- [] only have Create a shop in main nav if the user doesn't have a shop yet
+  - [] otherwise create add another shop button under my account or something? 
 
-
+- [] Automatically resize thumbnail image to 300x300
+in items index view:
+<%= image_tag item.thumbnail.variant(resize_to_limit: [300, 300]), class: "thumbnail" if item.thumbnail.present? %>
+gem 'image_processing', '~> 1.2'
+bundle install
 - [] Stretch goal: Make an offer has an auto-fill for current items the user has to attach to their offer
 - [] Stretch goal: shop owners can update items via the shop page
 - [] Stretch goal: user sends money directly to Creator via Stripe connect.
-- [] Stretch goal: Allow login via Stripe
-- [] Stretch goal: Add separate contact info for shop (instead of emailing trade offer to owner of shop)
+- [] Stretch goal: Allow login via Stripe (this was done but i removed for now)
+- [] Maybe later: Add separate contact info for shop (in case message should go to someone other than owner of shop)
 - [] Stretch goal: look into Friendly ID for slugs:
  https://rubygems.org/gems/friendly_id/versions/5.1.0
 - [] Stretch goal: install stimulus js so new items form on shop page only pops up if you click on a button
@@ -225,6 +243,8 @@ MESSAGE
 body:text
 conversation_id:integer foreign key
 user_id:integer foreign key
+
+read:boolean, default: false
 
 class Message < ApplicationRecord
   belongs_to :conversation
