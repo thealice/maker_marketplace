@@ -1,4 +1,4 @@
-<h1>Message between <%= @conversation.sender.name %> and <%= @conversation.recipient.name %></h1>
+<h1>Conversation between <%= @conversation.sender.name %> and <%= @conversation.recipient.name %></h1>
 
 <% if @over_ten %>
   <%= link_to "Show previous", '?m=all', class:'button is-link' %>
@@ -22,9 +22,9 @@
 </section>
 
 <%= form_for [@conversation, @message] do |f| %>
-  <%= f.text_area :body, class: "textarea", placeholder: "Inquire about a trade..." %>
+  <%= f.text_area :body, class: "textarea", placeholder: "Inquire about an item..." %>
   <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-  <div class="text-align-right">
+  <div class="send">
     <%= f.submit "Send message", class: "btn is-link" %>
   </div>
 <% end %>
