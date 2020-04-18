@@ -13,6 +13,7 @@ class ConversationsController < ApplicationController
         # create! raises exception if not saved
         @conversation = Conversation.create!(conversation_params)
       end
+      redirect_to conversation_messages_path(@conversation)
     end
   
     private
