@@ -11,9 +11,6 @@
         <ul class="navbar-nav">
 
         <!-- All users nav -->
-            <li class="nav-item">
-                <%= link_to "All Shops", shops_path, class: "btn" %>
-            </li>
             <li class="dropdown">
                 <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Shop by Category<span class="caret"></span></button>
                 <ul class="dropdown-menu">
@@ -25,10 +22,10 @@
 
         <!-- Logged IN Users Nav -->    
             <% if user_signed_in? %>
-                <li class="nav-item">
-                <%= link_to "Create a Shop", new_shop_path, class: "btn" %>
-                </li>
                 <% if current_user.has_one_shop? %>
+                    <li class="nav-item">
+                        <%= link_to "My Shop", shop_path(current_user.shops.last), class: "btn" %>
+                    </li>
                     <li class="nav-item">
                         <%= link_to "Add an Item", new_shop_item_path(current_user.shops.last), class: "btn" %>
                     </li>
@@ -40,7 +37,11 @@
                                 <li><%= link_to s.name, new_shop_item_path(s) %></li>
                             <% end %>
                         </ul>
-                    </li>    
+                    </li> 
+                <% else %>
+                    <li class="nav-item">
+                        <%= link_to "Create a Shop", new_shop_path, class: "btn" %>
+                    </li>
                 <% end %>
                 <li class="nav-item">
                     <%= link_to "My Account", edit_user_registration_path, class: "btn" %>
