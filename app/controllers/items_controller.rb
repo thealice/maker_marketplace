@@ -12,6 +12,8 @@ class ItemsController < ApplicationController
     if params[:shop_id]
       @shop = Shop.find_by_id(params[:shop_id])
       @items = @shop.items
+    elsif params[:query]
+      @items = Item.search(params[:query])
     else
       @items = Item.all
     end

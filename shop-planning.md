@@ -48,9 +48,9 @@ Items have many categories and categories have many items. Use a item_categories
 - [] Add meaningful ReadMe.md
 - [] Style items listing
 - [] Style shops listing (or remove?)
-- [] Add cash app purchase
+- [] Add cash app purchase info to item show view
 - [] Make clear which items are available for trade and which aren't (add an available for trade section under shop by category, or after price put "or trade" or add some kind of banner across the thumbnail image or whatever)
-- [] Add My shop button to nav for users with one shop (and nest add item under there?)
+- [x] Add My shop button to nav for users with one shop (and nest add item under there?)
 - [] Add My Shops button to nav for users with more than one shop?
 - [] Get rid of all unused files like tests/ and devise controllers (controlers/users)
 - [x] Stretch goal: Message button opens up a conversation between users
@@ -65,12 +65,12 @@ Items have many categories and categories have many items. Use a item_categories
   - [] Style messages properly
   - [] change message body from text to action text like the descriptions?
   - [] add "read" boolean to messages
-  - [] update nav link so users only see their own conversations
+  - [x] update nav link so users only see their own conversations
   - [] users should only be able to create a message within their own conversations
-- [] remove shops index
-- [] only have Create a shop in main nav if the user doesn't have a shop yet
+- [x] remove shops index
+- [x] only have Create a shop in main nav if the user doesn't have a shop yet
   - [] otherwise create add another shop button under my account or something? 
-
+- [] Stretch goal: users can search items from all shops. 
 - [] Automatically resize thumbnail image to 300x300
 in items index view:
 <%= image_tag item.thumbnail.variant(resize_to_limit: [300, 300]), class: "thumbnail" if item.thumbnail.present? %>
@@ -85,7 +85,6 @@ bundle install
  https://rubygems.org/gems/friendly_id/versions/5.1.0
 - [] Stretch goal: install stimulus js so new items form on shop page only pops up if you click on a button
 bundle exec rails webpacker:install:stimulus
-- [] Stretch goal: users can search items from all shops. 
 - [] Stretch goal: users can post comments (on items or shops)
 
 https://learn.co/tracks/online-software-engineering-uci-structured/rails/rails-project-mode/rails-portfolio-project
@@ -99,7 +98,7 @@ Your models must:
    - [x] Include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data. (user attributes are validated, email needs to have @, password must be at least 6 characters, Shops validate presence of :name, uniqueness: true, can only add items to a shop if they have a name, Category validates presence of name)
 
    - [x] Include at least one class level ActiveRecord scope method. a. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).
-   Category.with_items_alph and Message.between
+   Category.with_items_alph, Message.between, Item.search
 
 Your application must:
 
