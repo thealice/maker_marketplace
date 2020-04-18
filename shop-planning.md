@@ -127,7 +127,7 @@ Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails ap
    - [] Follow patterns in the Rails Style Guide and the Ruby Style Guide.
 
 
-models: User (with three roles?: Admin, maker, buyer), Shop, Item, CAtegory, ItemCategory, Comment?, Order??, Trade?
+models: User (with three roles?: Admin, maker, buyer), Shop, Item, CAtegory, ItemCategory, Comment?, Cart??, Order??
 SEE: https://github.com/heartcombo/devise/wiki/How-To:-Add-an-Admin-Role for info on Roles
 
 root to: 'items#index'
