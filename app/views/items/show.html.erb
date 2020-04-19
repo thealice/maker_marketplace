@@ -40,9 +40,9 @@
         </div><!--END price -->
         
         <% if !user_signed_in? %>
-        <%= link_to "Sign up to Message #{@shop.user.name || @shop.name}", new_user_registration_path, class: 'btn' %>
+        <%= link_to "Sign up to Make a Trade", new_user_registration_path, class: 'btn btn-primary' %>
         <% elsif !item_owner(@item) %>
-            <%= link_to "Message #{@shop.user.name || @shop.name}", conversations_path(sender_id: current_user.id, recipient_id: @shop.user_id), method: 'post', class:"btn is-link" %>
+            <%= link_to "Message #{@shop.user.name || @shop.name}", conversations_path(sender_id: current_user.id, recipient_id: @shop.user_id), method: 'post', class:"btn btn-primary" %>
         <% end %><!-- END Message Button -->
 
     <!-- Item settings -->

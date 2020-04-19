@@ -34,10 +34,10 @@
           <%= image_tag @shop.featured_image, class: "img featured-img" %>
     <% end %>
     </div>-->
-  <hr>
 
   <!-- Add new item to shop -->
   <% if admin? || owner_of(@shop) %>
+    <hr>
     <h2>Add a new item to <%= @shop.name %></h2>
     <div class="max-width-md">
       <%= render 'items/form', item: Item.new, shop: @shop %>

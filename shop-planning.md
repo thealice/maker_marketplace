@@ -83,6 +83,7 @@ in items index view:
 <%= image_tag item.thumbnail.variant(resize_to_limit: [300, 300]), class: "thumbnail" if item.thumbnail.present? %>
 gem 'image_processing', '~> 1.2'
 bundle install
+- [] Stretch goal: indicate when user has an unread message
 - [] Stretch goal: Make an offer has an auto-fill for current items the user has to attach to their offer
 - [] Stretch goal: shop owners can update items via the shop page
 - [] Stretch goal: install stimulus js so new items form on shop page only pops up if you click on a button
