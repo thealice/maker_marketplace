@@ -46,7 +46,11 @@ Items have many categories and categories have many items. Use a item_categories
 
 - [] Allow login via Google, Github, Twitter or Instagram
 - [] Add meaningful ReadMe.md
-- [] Style items listing
+- [x] Style items listing
+- [] style forms
+- [] remove messages column for body (t.text "body") and use action text (call the attribute content instead) for that? 
+  -[] delete all existing messages
+  -[] update message view to use action text
 - [] Style shops listing (or remove?)
 - [] Add cash app purchase info to item show view
 - [] Make clear which items are available for trade and which aren't (add an available for trade section under shop by category, or after price put "or trade" or add some kind of banner across the thumbnail image or whatever)
@@ -70,7 +74,7 @@ Items have many categories and categories have many items. Use a item_categories
 - [x] remove shops index
 - [x] only have Create a shop in main nav if the user doesn't have a shop yet
   - [] otherwise create add another shop button under my account or something? 
-- [] Stretch goal: users can search items from all shops. 
+- [x] Stretch goal: users can search items from all shops. 
 - [] Automatically resize thumbnail image to 300x300
 in items index view:
 <%= image_tag item.thumbnail.variant(resize_to_limit: [300, 300]), class: "thumbnail" if item.thumbnail.present? %>
@@ -78,13 +82,13 @@ gem 'image_processing', '~> 1.2'
 bundle install
 - [] Stretch goal: Make an offer has an auto-fill for current items the user has to attach to their offer
 - [] Stretch goal: shop owners can update items via the shop page
+- [] Stretch goal: install stimulus js so new items form on shop page only pops up if you click on a button
+bundle exec rails webpacker:install:stimulus
 - [] Stretch goal: user sends money directly to Creator via Stripe connect.
 - [] Stretch goal: Allow login via Stripe (this was done but i removed for now)
 - [] Maybe later: Add separate contact info for shop (in case message should go to someone other than owner of shop)
 - [] Stretch goal: look into Friendly ID for slugs:
  https://rubygems.org/gems/friendly_id/versions/5.1.0
-- [] Stretch goal: install stimulus js so new items form on shop page only pops up if you click on a button
-bundle exec rails webpacker:install:stimulus
 - [] Stretch goal: users can post comments (on items or shops)
 
 https://learn.co/tracks/online-software-engineering-uci-structured/rails/rails-project-mode/rails-portfolio-project
@@ -230,11 +234,6 @@ class Conversation < ApplicationRecord
 
   validates_uniqueness_of :sender_id, scope: :recipient_id
 
-  # This scope validation takes the sender_id and recipient_id for the conversation and checks whether a conversation exists between the two ids because we only want two users to have one conversation.
-
-  scope :between, -> (sender_id, recipient_id) do
-    where("(conversations.sender_id = ? AND conversations.recipient_id = ?) OR (conversations.sender_id = ? AND conversations.recipient_id = ?)", sender_id, recipient_id, recipient_id, sender_id)
-  end
 end
 
 
@@ -258,7 +257,7 @@ end
  Comment (polymorphic)
 rails g model Comment commentable_type:string commentable_id:integer user:references body:text
 rails g controller comments create
-rails g controller projects/comments
+rails g controller items/comments
 
 Body
 
