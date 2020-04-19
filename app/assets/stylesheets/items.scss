@@ -1,20 +1,30 @@
 // Place all the styles related to the Items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
-.description {
-    
+  
+.thumbnail {
+    height: 250px;
+    width: 250px;
 }
 
-.thumbnail {
+.sq-300 {
     height: 300px;
     width: 300px;
 }
 
-a .thumbnail:hover {
-    opacity: 0.6;
+.card {
+    margin-right: 20px;
 }
 
+.card > :last-child { margin-right: 0 !important; }
+
+.card-body {
+    max-width: 250px;
+}
+
+.item-listing a:hover {
+    opacity: 0.7;
+}
 .item-owner-info {
 
 }
