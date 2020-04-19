@@ -8,7 +8,11 @@
 @import "buttons";
 @import "messages";
 
-.max-width-md {
+a:hover {
+    text-decoration: none;
+}
+
+form {
     max-width: 32rem;
 }
 
