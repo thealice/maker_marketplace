@@ -22,8 +22,8 @@
   <div class="settings right">
     <% if admin? || owner_of(@shop) %>
         <div class="shop-settings">
-          <%= link_to 'Edit Shop', edit_shop_path(@shop), class: "btn" %>
-          <%= link_to 'Delete Shop', shop_path(@shop), method: :delete, class: "btn", data: { confirm: "Are you sure?" } %>
+          <%= link_to 'Edit Shop', edit_shop_path(@shop), class: "btn btn-primary" %>
+          <%= link_to 'Delete Shop', shop_path(@shop), method: :delete, class: "btn btn-secondary", data: { confirm: "Are you sure?" } %>
         </div>
     <% end %>
   </div><!-- END Shop Settings -->

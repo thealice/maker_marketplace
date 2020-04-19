@@ -59,6 +59,7 @@ Items have many categories and categories have many items. Use a item_categories
 - [x] Add My shop button to nav for users with one shop (and nest add item under there?)
 - [] Add My Shops button to nav for users with more than one shop?
 - [] Get rid of all unused files like tests/ and devise controllers (controlers/users)
+- [] Stretch goal: limit item listings to 30 or some manageable number but link to the rest somehow
 - [x] Stretch goal: Message button opens up a conversation between users
   - [x] Conversation model
   - [x] Conversation migration
