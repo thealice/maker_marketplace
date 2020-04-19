@@ -14,4 +14,8 @@ class Item < ApplicationRecord
     end
   end
 
+  def self.by_most_recent
+    Item.all.sort_by{|item| item.created_at}.reverse
+  end
+
 end

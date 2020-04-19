@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     elsif params[:query]
       @items = Item.search(params[:query])
     else
-      @items = Item.all
+      @items = Item.by_most_recent
     end
   end
 
