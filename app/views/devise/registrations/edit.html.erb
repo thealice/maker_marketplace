@@ -1,17 +1,17 @@
  <div class="container"> 
 
-  <!--Stripe Connect
-  <% unless resource.has_no_shop? %>
-    <div class="align-center">
-      <% if resource.can_receive_payments? %>
-        <h4>Successfully connected to Stripe  ✅</h4>
-      <% else %>
-        <h4>You wont be able to collect payment directly until you register with Stripe!</h4>
-        <%= stripe_connect_button %>
-      <% end %>
-    </div>
-  <hr>
-  <% end %> END Stripe Connect -->
+  <!--Stripe Connect -->
+  <%# unless resource.has_no_shop? %>
+    <!--<div class="align-center">-->
+      <%# if resource.can_receive_payments? %>
+        <!--<h4>Successfully connected to Stripe  ✅</h4>-->
+      <%# else %>
+        <!--<h4>You wont be able to collect payment directly until you register with Stripe!</h4>-->
+        <%# stripe_connect_button %>
+      <%# end %>
+    <!--</div>-->
+  <!--<hr>-->
+  <%# end %> <!--END Stripe Connect -->
 
   <div class="edit-profile">
     <h2>Edit <%= resource_name.to_s.humanize %></h2>
