@@ -1,11 +1,19 @@
-<% items.each do |item| %>
-        <div class="item-listing">
-            <%= link_to item.name, shop_item_path(item.shop_id, item.id) %>
-            <br/>
-            <%= number_to_currency(item.price) if item.price%>
-            <br/>
-            <% if item.thumbnail.present? %>
-                <%= link_to (image_tag item.thumbnail, class: "thumbnail", alt: "#{item.name} preview"), shop_item_path(item.shop_id, item.id) %>
-            <% end %>
-        </div>
-<% end %>
+<div class="row item-listing">
+    <% items.each do |item| %>
+        <a href ="<%= shop_item_path(item.shop_id, item.id) %>">
+            <div class="card shadow mb-4">
+                <% if item.thumbnail.present? %>
+                    <%= image_tag item.thumbnail, class: "card-img-top thumbnail", alt: "#{item.name} preview" %>
+                <% end %>
+                <div class="card-body">
+                    <h5 class="card-title mb-0">
+                        <%= item.name %>
+                    </h5>
+                    <div class="card-text text-black-70">
+                        <%= number_to_currency(item.price) if item.price %>
+                    </div>
+                </div>
+            </div>
+        </a>
+    <% end %>
+</div>
