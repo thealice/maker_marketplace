@@ -26,7 +26,7 @@
     <%= f.text_area :body, class: "textarea", placeholder: "Inquire about an item..." %>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
     <div class="send">
-      <%= f.submit "Send message", class: "btn is-link" %>
+      <%= f.submit "Send message", class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>
