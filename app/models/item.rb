@@ -6,6 +6,8 @@ class Item < ApplicationRecord
   has_rich_text :description
   has_one_attached :thumbnail, dependent: :destroy
 
+  validates_presence_of :name
+
   def self.search(query)
     if query.blank?
       self.all
