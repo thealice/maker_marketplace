@@ -1,57 +1,58 @@
-<h1><%= @item.name %></h1>
+<div class="container">
+    <h1><%= @item.name %></h1>
 
-    <!-- Item Details -->
-    <div class="details">
-        <span>Listed under:</span> 
-            <% if @categories.count == 1 %>
-                <% @categories.each do |cat| %>
-                    <%= link_to cat.name, category_path(cat)  %>
+        <!-- Item Details -->
+        <div class="details">
+            <span>Listed under:</span> 
+                <% if @categories.count == 1 %>
+                    <% @categories.each do |cat| %>
+                        <%= link_to cat.name, category_path(cat)  %>
+                    <% end %>
+                <% else %>
+                    <% @categories.each do |cat| %>
+                        <% if cat == @categories.last %>
+                            and <%= link_to cat.name, category_path(cat) %>.
+                        <% else %>
+                            <%= link_to cat.name, category_path(cat) %>,
+                        <% end%>
+                    <% end %>
                 <% end %>
-            <% else %>
-                <% @categories.each do |cat| %>
-                    <% if cat == @categories.last %>
-                        and <%= link_to cat.name, category_path(cat) %>.
-                    <% else %>
-                        <%= link_to cat.name, category_path(cat) %>,
-                    <% end%>
-                <% end %>
-            <% end %>
-                <div class="item-owner-info">
-        <span>Offered by:</span>
-        <%= link_to @shop.name, shop_path(@shop) if @shop %>
-    </div>
-    </div><!-- END details -->
-
-    <% if @item.thumbnail.present? %>
-        <div class="image">
-            <%= image_tag @item.thumbnail, class: "thumbnail" %>
+                    <div class="item-owner-info">
+            <span>Offered by:</span>
+            <%= link_to @shop.name, shop_path(@shop) if @shop %>
         </div>
-    <% end %><!--END thumbnail image -->
+        </div><!-- END details -->
 
-    <div class="description">
-        <% if @item.description.present? %>
-        <%= @item.description %>
-        <% end %>
-    </div><!-- END description -->
+        <% if @item.thumbnail.present? %>
+            <div class="image">
+                <%= image_tag @item.thumbnail, class: "sq-300" %>
+            </div>
+        <% end %><!--END thumbnail image -->
 
-     <div class="price">
-         <%= number_to_currency(@item.price) %>
-     </div><!--END price -->
-    
-    <% if !user_signed_in? %>
-      <%= link_to "Sign up to Message #{@shop.user.name || @shop.name}", new_user_registration_path, class: 'btn' %>
-    <% elsif !item_owner(@item) %>
-        <%= link_to "Message #{@shop.user.name || @shop.name}", conversations_path(sender_id: current_user.id, recipient_id: @shop.user_id), method: 'post', class:"btn is-link" %>
-    <% end %><!-- END Message Button -->
+        <div class="description">
+            <% if @item.description.present? %>
+            <%= @item.description %>
+            <% end %>
+        </div><!-- END description -->
 
-<!-- Item settings -->
- <% if admin? || item_owner(@item) %>
-    <div class="item-settings">
-      <%= link_to 'Edit Item', edit_shop_item_path(@item.shop, @item), class: "btn" %>
-      <%= link_to 'Delete Item', shop_item_path(@item.shop, @item), method: :delete, class: "btn", data: { confirm: "Are you sure?" } %>
-    </div>
-<% end %>
+        <div class="price">
+            <%= number_to_currency(@item.price) %>
+        </div><!--END price -->
+        
+        <% if !user_signed_in? %>
+        <%= link_to "Sign up to Message #{@shop.user.name || @shop.name}", new_user_registration_path, class: 'btn' %>
+        <% elsif !item_owner(@item) %>
+            <%= link_to "Message #{@shop.user.name || @shop.name}", conversations_path(sender_id: current_user.id, recipient_id: @shop.user_id), method: 'post', class:"btn is-link" %>
+        <% end %><!-- END Message Button -->
 
+    <!-- Item settings -->
+    <% if admin? || item_owner(@item) %>
+        <div class="item-settings">
+        <%= link_to 'Edit Item', edit_shop_item_path(@item.shop, @item), class: "btn" %>
+        <%= link_to 'Delete Item', shop_item_path(@item.shop, @item), method: :delete, class: "btn", data: { confirm: "Are you sure?" } %>
+        </div>
+    <% end %>
+</div>
 
 
 

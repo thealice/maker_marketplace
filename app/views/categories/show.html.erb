@@ -1,7 +1,10 @@
-<h1><%= @category.name.capitalize %></h1>
+<div class="container">
+  <h1><%= @category.name.capitalize %></h1>
 
-  <!-- items listing -->
-  <div class="items-index">
-    <%= render 'items/listings', items: @items, category: @category %>
+    <!-- items listing -->
+    <div class="items-index">
+      <%= render 'items/listings', items: @items, category: @category %>
+    </div>
+
   </div>
 

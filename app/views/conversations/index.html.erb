@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <h3 class="title">My Conversations</h3>
     <% @conversations.each do |conversation| %>
       <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>

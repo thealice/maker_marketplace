@@ -1,30 +1,32 @@
-<h1>Conversation between <%= @conversation.sender.name %> and <%= @conversation.recipient.name %></h1>
+<div class="container">
+  <h1>Conversation between <%= @conversation.sender.name %> and <%= @conversation.recipient.name %></h1>
 
-<% if @over_ten %>
-  <%= link_to "Show previous", '?m=all', class:'button is-link' %>
-<% end %>
-
-<section id="messages" class="max-width-md">
-  <% @messages.each do |message| %>
-    <% if message.body %>
-      <% user = User.find_by_id(message.user_id) %>
-      <article class="message is-dark">
-        <div class="message-body">
-          <%= gravatar_for user, size: 32, class: "gravatar-img" %>
-          <strong><%= user.name %></strong> <%= message.message_time %>
-          <div class="block">
-            <div class="message-body"><%= sanitize markdown_to_html(message.body) %></div>
-          </div>
-        </div>
-      </article>
-    <% end %>
+  <% if @over_ten %>
+    <%= link_to "Show previous", '?m=all', class:'button is-link' %>
   <% end %>
-</section>
 
-<%= form_for [@conversation, @message] do |f| %>
-  <%= f.text_area :body, class: "textarea", placeholder: "Inquire about an item..." %>
-  <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-  <div class="send">
-    <%= f.submit "Send message", class: "btn is-link" %>
-  </div>
-<% end %>
+  <section id="messages" class="max-width-md">
+    <% @messages.each do |message| %>
+      <% if message.body %>
+        <% user = User.find_by_id(message.user_id) %>
+        <article class="message is-dark">
+          <div class="message-body">
+            <%= gravatar_for user, size: 32, class: "gravatar-img" %>
+            <strong><%= user.name %></strong> <%= message.message_time %>
+            <div class="block">
+              <div class="message-body"><%= sanitize markdown_to_html(message.body) %></div>
+            </div>
+          </div>
+        </article>
+      <% end %>
+    <% end %>
+  </section>
+
+  <%= form_for [@conversation, @message] do |f| %>
+    <%= f.text_area :body, class: "textarea", placeholder: "Inquire about an item..." %>
+    <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+    <div class="send">
+      <%= f.submit "Send message", class: "btn is-link" %>
+    </div>
+  <% end %>
+</div>
