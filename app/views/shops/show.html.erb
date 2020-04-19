@@ -4,6 +4,13 @@
   <!--Shop Details -->
   <div class="details">
       Shop owner: <%= @owner.name || @owner.email %>
+      <!-- Message shop owner button -->
+      <% if !user_signed_in? %>
+      <%= link_to "Sign up to Message #{@owner.name || @shop.name}", new_user_registration_path, class: 'btn' %>
+      <% elsif !owner_of(@shop) %>
+          <%= link_to "Message #{@owner.name || @shop.name}", conversations_path(sender_id: current_user.id, recipient_id: @shop.user_id), method: 'post', class:"btn is-link" %>
+      <% end %><!-- END Message Button -->
+
       <div class="description">
         <% if @shop.description.present? %>
           <%= @shop.description %>

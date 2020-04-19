@@ -48,6 +48,8 @@ Items have many categories and categories have many items. Use a item_categories
 - [] Add meaningful ReadMe.md
 - [x] Style items listing
 - [] style forms
+- [] style shop page
+- [] on shop page, add button to message shop owner
 - [] remove messages column for body (t.text "body") and use action text (call the attribute content instead) for that? 
   -[] delete all existing messages
   -[] update message view to use action text
