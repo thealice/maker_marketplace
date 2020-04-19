@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
   
   devise_for :users,
-    :controllers => { registrations: 'users/registrations', omniauth_callbacks: "omniauth_callbacks" },
+    :controllers => { registrations: 'users/registrations', omniauth_callbacks: "users/omniauth_callbacks" },
     :path_names => {
       :sign_in => 'login',
       :sign_out => 'logout',
