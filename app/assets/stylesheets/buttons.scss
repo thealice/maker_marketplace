@@ -1,8 +1,15 @@
 .facebook-btn img {
   width: 250px;
 }
-.is-link {
 
+.btn-primary {
+  margin-top: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+  margin-bottom: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+}
+.btn-message {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
 }
 
 /* STRIPE Branding */
