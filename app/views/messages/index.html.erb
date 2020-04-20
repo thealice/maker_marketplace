@@ -5,16 +5,16 @@
     <%= link_to "Show previous", '?m=all', class:'button is-link' %>
   <% end %>
 
-  <section id="messages" class="max-width-md">
+  <section id="messages mb-4" class="mb4">
     <% @messages.each do |message| %>
       <% if message.body %>
         <% user = User.find_by_id(message.user_id) %>
         <article class="message is-dark">
           <div class="message-body">
-            <%= gravatar_for user, size: 32, class: "gravatar-img" %>
-            <strong><%= user.name %></strong> <%= message.message_time %>
-            <div class="block">
-              <div class="message-body"><%= sanitize markdown_to_html(message.body) %></div>
+              <%= gravatar_for user, size: 32, class: "gravatar-img nudge-down-10 pr2" %>
+              <strong><%= user.name %></strong> <%= message.message_time %>
+            <div class="block pt4">
+              <div class="f4"><%= sanitize markdown_to_html(message.body) %></div>
             </div>
           </div>
         </article>
