@@ -44,12 +44,15 @@ Items have many categories and categories have many items. Use a item_categories
 - [x] add price to item listing (and if trade is option)
 - [x] Allow new items to be added directly from shop page
 
-- [] Allow login via Google, Github, Twitter or Instagram
+- [x] Allow login via Google, Github, Twitter or Instagram
 - [] Add meaningful ReadMe.md
 - [x] Style items listing
+- [] style error messaging in header
+- [] style menu
 - [] style forms
 - [] style shop page
-- [] on shop page, add button to message shop owner
+- [x] on shop page, add button to message shop owner
+- [] add mail icon to btn-message
 - [] remove messages column for body (t.text "body") and use action text (call the attribute content instead) for that? 
   -[] delete all existing messages
   -[] update message view to use action text
@@ -112,7 +115,7 @@ Your application must:
 
    - [x] provide standard user authentication, including signup, login, logout, and passwords.
 
-   - [] allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...
+   - [x] allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...
 
    - [x] make use of a nested resource with the appropriate RESTful URLs.
 
