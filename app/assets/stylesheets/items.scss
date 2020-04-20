@@ -39,12 +39,21 @@
 }
 
 .price {
-
+    font-weight: bold;
 }
 
 .item-settings {
 
 }
 
+a .card-text {
+    color: #333;
+}
+
+@media (max-width: 767.98px) {
+    .row.item-listing, .search {
+        justify-content: center;
+    }
+}
 
 

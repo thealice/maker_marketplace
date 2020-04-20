@@ -9,10 +9,14 @@
 @import "messages";
   
 body {
-    color: #333;
+    color: #777777;
     text-rendering: optimizeLegibility;
     font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
     line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #333;
 }
 
 a:hover {
@@ -46,3 +50,11 @@ form {
 .red {
     color: red;
 }
+
+#navbarNav li.dropdown.show  ul li a {
+    padding-left: 1rem;
+}
+
+// .bg-green {
+//     background-color: #00A86B;
+// }
