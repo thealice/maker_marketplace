@@ -18,6 +18,7 @@ To get Maker Marketplace running on your local machine for development and testi
 
 * [Rails](https://rubyonrails.org/) - Web Framework
 * [Bundler](https://bundler.io/) - Dependency Management
+* [Postgres](https://www.postgresql.org/) - Database
 * [Bootstrap](https://getbootstrap.com/) - Front-end component library
 * [Devise](https://github.com/heartcombo/devise) - User authentication
 * [Action Text](https://github.com/rails/rails/tree/v6.0.0.rc1/actiontext) - Rich text content editing and image attachments
@@ -38,6 +39,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 Thanks to: 
-* [Allison Cortez](https://github.com/allisoncortez) for help with planning and moral support
+* [Allison Cortez](https://github.com/allisoncortez) for moral support
 * My instructor, [Madeline Stark](https://github.com/Madeline-Stark)
 * and [Web-Crunch Tutorials](https://web-crunch.com) for instructions on the messaging portion.
