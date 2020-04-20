@@ -21,10 +21,14 @@ class User < ApplicationRecord
   end 
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0, 20]
-      user.name = auth.info.name
+    where(email: auth.info.email).first_or_create do |user|
+      user.provider = auth.provider if !user.provider
+      user.uid = auth.uid if !user.uid
+      user.email = auth.info.email if !user.email
+      user.password = Devise.friendly_token[0, 20] if !user.password
+      user.name = auth.info.name if !user.name
+      user.access_code = auth.credentials.token
+      user.save
       # If you are using confirmable and the provider(s) you use validate emails, 
       # uncomment the line below to skip the confirmation emails.
       # user.skip_confirmation!

@@ -31,7 +31,10 @@
       <%= f.submit "Sign up", class: "btn btn-primary" %>
     </div>
   <% end %>
-
-  <%= render "devise/shared/links" %>
+  <br/>
+  Signup with your Facebook account:<br/> 
+  <%= link_to image_tag("facebook-btn"), user_facebook_omniauth_authorize_path, class: "btn-facebook" %>
+  <br/>
+  Already signed up? <%= link_to "Login", new_user_session_path, class:"btn btn-login btn-link" %>
 
 </div>
