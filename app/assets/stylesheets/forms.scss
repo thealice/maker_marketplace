@@ -1,6 +1,10 @@
 .field_with_errors input {
     border: 1px solid red;
 }
-.text-area {
-    
+.search form {
+    max-width: 100%;
+}
+.search p {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
