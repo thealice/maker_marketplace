@@ -262,11 +262,6 @@ Devise.setup do |config|
   config.omniauth :facebook, 
   Rails.application.credentials.dig(:facebook)[:APP_ID],
   Rails.application.credentials.dig(:facebook)[:APP_SECRET]
-  # config.omniauth :stripe_connect, 
-  # Rails.application.credentials.dig(:stripe)[:connect_client_id],
-  # Rails.application.credentials.dig(:stripe)[:private_key],
-  # scope: 'read_write',
-  # stripe_landing: 'login'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
