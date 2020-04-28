@@ -2,19 +2,19 @@
   <h1>Conversation between <%= @conversation.sender.name %> and <%= @conversation.recipient.name %></h1>
 
   <% if @over_five %>
-    <%= link_to "Show previous", '?m=all', class:'btn btn-secondary' %>
+    <%= link_to "Previous messages", '?m=all', class:'btn btn-secondary btn-sm' %>
   <% end %>
 
-  <section id="messages" class="mb4">
+  <section id="messages" class="mb-4">
     <% @messages.each do |message| %>
       <% if message.body %>
         <% user = User.find_by_id(message.user_id) %>
-        <article class="message is-dark">
-          <div class="message-body">
-              <%= gravatar_for user, size: 32, class: "gravatar-img nudge-down-10 pr2" %>
+          <article class="message">
+            <div class="message-body"> 
+              <%= gravatar_for user, size: 32, class: "gravatar-img nudge-down-10 pr-2" %>
               <strong><%= user.name %></strong> <%= message.message_time %>
-            <div class="block pt4">
-              <div class="f4"><%= sanitize markdown_to_html(message.body) %></div>
+            <div class="block pt-4">
+              <div><%= sanitize markdown_to_html(message.body) %></div>
             </div>
           </div>
         </article>
@@ -26,7 +26,7 @@
     <%= f.text_area :body, class: "textarea", placeholder: "Inquire about an item..." %>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
     <div class="send">
-      <%= f.submit "Send message", class: "btn btn-primary" %>
+      <%= f.submit "Send message", class: "btn btn-message" %>
     </div>
   <% end %>
 </div>

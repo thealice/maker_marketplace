@@ -5,12 +5,21 @@
   margin-top: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
   margin-bottom: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
 }
+.btn-secondary {
+  margin-top: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+  margin-bottom: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+}
 .btn-message {
     color: #fff;
     background-color: #17a2b8;
     border-color: #17a2b8;
     margin-bottom: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
     margin-top: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+}
+.btn-message:hover {
+  color: #fff;
+  background-color: #107a8a;
+  border-color: #107a8a;
 }
 .btn-back {
   color: #fff;
