@@ -1,11 +1,11 @@
 <div class="container">
   <h1>Conversation between <%= @conversation.sender.name %> and <%= @conversation.recipient.name %></h1>
 
-  <% if @over_ten %>
-    <%= link_to "Show previous", '?m=all', class:'button is-link' %>
+  <% if @over_five %>
+    <%= link_to "Show previous", '?m=all', class:'btn btn-secondary' %>
   <% end %>
 
-  <section id="messages mb-4" class="mb4">
+  <section id="messages" class="mb4">
     <% @messages.each do |message| %>
       <% if message.body %>
         <% user = User.find_by_id(message.user_id) %>
