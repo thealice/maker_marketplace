@@ -20,7 +20,12 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    if params[:shop_id]
+      @shop = Shop.find_by_id(params[:shop_id])
+      @item = Item.new
+    else
+     @item = Item.new
+    end
   end
 
   def create
