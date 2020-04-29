@@ -24,7 +24,7 @@
 
     <div class="form_field">
         <%= form.label "Price: ", class: "label" %>
-        <%= form.text_field :price, placeholder: "0.00", class: "input" %>
+        <%= form.text_field :price, placeholder: "$0.00", class: "input" %>
     </div>
 
     <div class="form_field">
@@ -37,15 +37,16 @@
         <%= form.check_box(:make_an_offer, {}, "true", "false") %>
     </div>
 
-    <div class="file_upload_field">
-        <%= form.label "Thumbnail (300x300 px):", class: "label" %>
-        <%= form.file_field :thumbnail %>
-    </div>
+    <fieldset class="file_upload_field">
+        <legend><%= form.label :thumbnail, class: "label" %>:</legend>
+        <%= form.file_field :thumbnail %><br>
+        <p>(300 x 300px is best)</p>
+    </fieldset>
 
-     <div class="form_field">
-        <%= form.label "Select Categories: ", class: "label" %><br/>
+     <fieldset>
+        <legend class="label">Select Categories:</legend>
         <%= form.collection_check_boxes :category_ids, Category.all, :id, :name, class: "checkbox" %>
-    </div>
+    </fieldset>
 
   <div class="form-field">
     <%= form.submit class: "btn btn-primary" %>
