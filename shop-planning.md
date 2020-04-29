@@ -45,7 +45,7 @@ Items have many categories and categories have many items. Use a item_categories
 - [x] Allow new items to be added directly from shop page
 
 - [x] Allow login via Google, Github, Twitter or Instagram
-- [] Add meaningful ReadMe.md
+- [x] Add meaningful ReadMe.md
 - [x] Style items listing
 - [] style error messaging in header
 - [] style menu
@@ -56,7 +56,7 @@ Items have many categories and categories have many items. Use a item_categories
 - [] remove messages column for body (t.text "body") and use action text (call the attribute content instead) for that? 
   -[] delete all existing messages
   -[] update message view to use action text
-- [] Style shops listing (or remove?)
+- [x] Style shops listing (removed)
 - [] Add cash app purchase info to item show view
 - [] Make clear which items are available for trade and which aren't (add an available for trade section under shop by category, or after price put "or trade" or add some kind of banner across the thumbnail image or whatever)
 - [x] Add My shop button to nav for users with one shop (and nest add item under there?)
@@ -81,12 +81,13 @@ Items have many categories and categories have many items. Use a item_categories
 - [x] only have Create a shop in main nav if the user doesn't have a shop yet
   - [] otherwise create add another shop button under my account or something? 
 - [x] Stretch goal: users can search items from all shops. 
-- [] Automatically resize thumbnail image to 300x300
+- [] Stretch goal: indicate when user has an unread message
+- [] make it so everytime menu loads it isn't making calls to the database for the categories menu.
+- [] Stretch goal: Automatically resize thumbnail image to 300x300
 in items index view:
 <%= image_tag item.thumbnail.variant(resize_to_limit: [300, 300]), class: "thumbnail" if item.thumbnail.present? %>
 gem 'image_processing', '~> 1.2'
 bundle install
-- [] Stretch goal: indicate when user has an unread message
 - [] Stretch goal: Make an offer has an auto-fill for current items the user has to attach to their offer
 - [] Stretch goal: shop owners can update items via the shop page
 - [] Stretch goal: install stimulus js so new items form on shop page only pops up if you click on a button

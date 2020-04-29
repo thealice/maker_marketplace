@@ -6,14 +6,14 @@
             <span>Listed under:</span> 
                 <% if @categories.count == 1 %>
                     <% @categories.each do |cat| %>
-                        <%= link_to cat.name, category_path(cat)  %>
+                        <%= link_to cat.name.capitalize, category_path(cat)  %>
                     <% end %>
                 <% else %>
                     <% @categories.each do |cat| %>
                         <% if cat == @categories.last %>
-                            and <%= link_to cat.name, category_path(cat) %>.
+                            and <%= link_to cat.name.capitalize, category_path(cat) %>.
                         <% else %>
-                            <%= link_to cat.name, category_path(cat) %>,
+                            <%= link_to cat.name.capitalize, category_path(cat) %>,
                         <% end%>
                     <% end %>
                 <% end %>
