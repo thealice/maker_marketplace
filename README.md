@@ -1,6 +1,6 @@
 # Maker Marketplace
 
-Maker Marketplace is an online marketplace that allows all logged in users to create, edit and delete their own shops. They can list items for sale or trade in their shops. All users (whether logged in or out) can browse and search items for sale. They have to be logged in to message a shop owner to inquire about a purchase or trade. There is a list of all of their messages with various other users, and conversations, once started are continuous (there is only one conversation between the same two users no matter who is sender or recipient). Users can sign in or create an account via Facebook, or the regular login/signup form. The app uses Devise for user authentication managing user profiles.
+Maker Marketplace is an online marketplace that allows all logged in users to create, edit and delete their own shops. They can list items for sale or trade in their shops. All users (whether logged in or out) can browse and search items for sale. They have to be logged in to message a shop owner to inquire about a purchase or trade. There is a list of all of a logged-in user's messages with various other users. Messaging conversations, once started, are continuous (there is only one conversation between the same two users no matter who is sender or recipient). Users can sign in or create an account via Facebook, or the regular login/signup form. The app uses Devise for user authentication managing user profiles.
 
 See https://youtu.be/S3jc_UV_tO4 for a brief runthrough.
 
