@@ -6,6 +6,8 @@ Logged-in users can access all of their messages with various other users. Messa
 
 See https://youtu.be/S3jc_UV_tO4 for a brief runthrough.
 
+My blogpost on how to create your own Rails app can be found at https://thealice.github.io/getting_started_on_your_rails_app_a_step-by-step_guide
+
 ## Getting Started
 
 To get Maker Marketplace running on your local machine for development and testing purposes, fork and clone this repo:
